@@ -51,4 +51,6 @@ Product.delete = function(id, callback){
   db.product.remove({_id:db.ObjectId(id)}, function(err, product){
     callback(err, product);
   });
+  
+  // $todo:删除图片
 }
