@@ -1,0 +1,28 @@
+extends ../layout_console
+
+block content
+  h1= is_new?"新建产品":"编辑产品"
+  form(class="formA", action="/console/product/#{is_new?"new":"edit/"+product._id}", method="post", enctype="multipart/form-data")
+    fieldset
+      legend 必填信息
+      .row
+        label.key 名称
+        input(type="text", name="name", value="#{blankStr(product.name)}")
+      .row
+        label.key 厂商
+        input(type="text", name="brand", value="#{blankStr(product.brand)}")
+      .row
+        label.key 图片
+        input(type="file", name="image")
+      .row
+        label.key 说明
+        textarea(name="introduce", value="#{blankStr(product.introduce)}")
+      .hd
+        input(type="hidden", name="mark_image", value="#{blankStr(product.image)}")
+    fieldset
+      legend 选填信息
+      .row
+        label.key 颜色
+        input(type="text", name="color", value="#{blankStr(product.params.color)}")
+      .bottom
+        input(type="submit", value="提交表单")

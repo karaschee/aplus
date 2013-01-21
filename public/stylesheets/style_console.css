@@ -1,0 +1,9 @@
+body { padding:30px; min-width:960; }
+
+#console_index{
+    padding:10px;
+    border:1px solid #ccc;
+    background:#efefef;
+    font-size:12px;
+}
+#console_content { padding:0 20px; }
