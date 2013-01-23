@@ -1,16 +1,17 @@
 extends ../layout_console
 
 block content
+  h1= title
   table.table_normal
-    tr
-      tr 
-        th 产品名称
-        th 品牌
-        th 操作
-      - each product in products
-        tr
-          td= product.name
-          td= product.brand
-          td 
-            a(href="/console/product/edit/#{product._id}") [ 编辑 ] 
-            a(href="/console/product/delete/#{product._id}") [ 删除 ]
+    tr 
+      th 产品名称
+      th 品牌
+      th 操作
+    - each product in products
+      tr
+        td= product.name
+        td= product.brand
+        td 
+          a(href="/products/#{product._id}/edit") [ 编辑 ] 
+          a(href="/products/#{product._id}/delete") [ 删除 ] 
+          a(href="/console/products/#{product._id}/comments") [ 查看留言 ]

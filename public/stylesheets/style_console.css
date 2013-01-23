@@ -1,9 +1,14 @@
 body { padding:30px; min-width:960; }
 
 #console_index{
-    padding:10px;
-    border:1px solid #ccc;
-    background:#efefef;
-    font-size:12px;
+  padding:10px;
+  border:1px solid #ccc;
+  background:#efefef;
+  font-size:12px;
 }
 #console_content { padding:0 20px; }
+
+.console_form { width:630px; }
+.console_form .product_img { margin:0 0 10px; width:150px; height:150px; }
+.console_form img.product_img { }
+.console_form div.product_img { border:2px #ccc dotted; line-height:150px; text-align:center; background:#fafafa; }

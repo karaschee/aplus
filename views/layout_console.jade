@@ -1,7 +1,7 @@
 html
   head
     meta(contnet="text/html", charset="utf-8", http-equiv="Content-Type")
-    title= title
+    title= title + " | A+成品后台控制台"
     link(rel='stylesheet', href='/stylesheets/reset.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/style_console.css')
@@ -13,7 +13,7 @@ html
             li 
               a(href="/console") product index
             li 
-              a(href="/console/product/new") new product
+              a(href="/products/new") new product
       .main
         #console_content
           block content

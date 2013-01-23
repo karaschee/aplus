@@ -25,15 +25,14 @@ Product.prototype.save = function(callback){
 Product.get = function(condition, callback){
   // 如果直接传id的话
   if(typeof condition == "string"){
-    var id = condition;
-    if(id.length != 24){
+    if(condition.length != 24){
       callback(new Error("the length of id is not 24"));
       return;
     }
-    db.product.findOne({_id:db.ObjectId(id)}, function(err, product){
+    db.product.findOne({_id:db.ObjectId(condition)}, function(err, product){
       callback(err, product);
     });
-
+  // 根据条件查询
   }else {
     db.product.find(condition, function(err, products){
       callback(err, products);

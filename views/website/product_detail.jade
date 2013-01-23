@@ -1,0 +1,11 @@
+- collection = "product", id = product._id
+
+h1= product.name
+
+p this is content
+
+ul
+  - each comment in comments
+    li= comment.content
+
+include ./comment_form

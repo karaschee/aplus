@@ -1,0 +1,12 @@
+form.formA(action="/#{collection}s/#{id}/comments/new", method="post")
+  .row
+    label.key name
+    input(name="user")
+  .row
+    lable.key email
+    input(name="email")
+  .row
+    lable.key content
+    textarea(name="content")
+  .bottom
+    input(type="submit", value="提交")  
