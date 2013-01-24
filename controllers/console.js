@@ -16,9 +16,10 @@ exports.products = function(req, res){
   })
 }
 
+// 不论是product还是article，统一处理
 exports.comments = function(req, res){
-  var product = req.product;
-  Comment.getByParentId(product._id, function(err, comments){
-    res.render('console/product_comments', {title:product.name+' 的评论', comments:comments});
+  var result = req.result;
+  Comment.getByParentId(result._id, function(err, comments){
+    res.render('console/comments', {title:result.name+' 的评论', comments:comments});
   });
 }

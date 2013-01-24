@@ -5,7 +5,7 @@ exports.getById = function(req, res, next, id) {
   Product.get(id, function(err, result){
     if (err) return next(err);
     if (!result) return next(new Error('Post loading failed'));
-    req.product = result;
+    req.result = result;
     next();
   });
 }
@@ -32,7 +32,7 @@ exports.save = function(req, res){
 }
 
 exports.edit = function(req, res){
-  res.render('console/product_edit',{title:'编辑产品', product:req.product, is_new:false});
+  res.render('console/product_edit',{title:'编辑产品', product:req.result, is_new:false});
 }
 
 exports.update = function(req, res){

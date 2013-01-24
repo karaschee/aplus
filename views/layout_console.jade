@@ -5,15 +5,23 @@ html
     link(rel='stylesheet', href='/stylesheets/reset.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/style_console.css')
+    script(type="text/javascript", src="/javascripts/jquery.1.9.0.min.js")
   body
     .layout
       .lCol.lCol_console
         #console_index
-          ul
-            li 
-              a(href="/console") product index
-            li 
-              a(href="/products/new") new product
+          dt 产品库
+          dd 
+            ul
+              li 
+                a(href="/console/products") 产品列表
+              li 
+                a(href="/products/new") 新增产品
+          dt 文章管理
+          dd
+            ul
+              li
+                a(href="/console/articles") 文章列表
       .main
         #console_content
           block content

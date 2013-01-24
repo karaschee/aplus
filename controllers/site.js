@@ -8,7 +8,7 @@ exports.products = function(req, res){
 }
 
 exports.product = function(req, res){
-  var product = req.product;
+  var product = req.result;
   var comments = Comment.getByParentId(product._id, function(err, comments){
     res.render('website/product_detail', { title:'', product:product, comments:comments})
   })

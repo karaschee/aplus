@@ -111,27 +111,28 @@ h3 { font-size:14px; }
    ========================================================================== */
 
 .table_normal{
-    width: 100%;
-    text-align: left;
-    margin-bottom: 2em;
-    color: #303030;
-    font-size: 13px;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 2em;
+  color: #303030;
+  font-size: 13px;
 }
 .table_normal caption{
-    font-size: 16px;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    text-align: left;
-    line-height: 30px;
-    color: #bb0000;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  text-align: left;
+  line-height: 30px;
+  color: #bb0000;
 }
 .table_normal th, .table_normal td{
-    border: 1px solid #ddd;
-    padding: 7px 12px;
+  border: 1px solid #ddd;
+  padding: 7px 12px;
 }
-.table_normal th{
-    background-color: #f2f5fa;
-}
+.table_normal th{ background-color: #f2f5fa; }
+.table_normal tr:nth-child(odd) { background:#f3f3f3; }
+/*.table_normal tr:hover { background:#e3e3e3; }*/
+
 
 /* td common width */
 .tdw20p { width:20%; }

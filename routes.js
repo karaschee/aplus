@@ -31,6 +31,8 @@ module.exports = function(app){
   })
   app.get('/console/products', console.products);
   app.get('/console/products/:productid/comments', console.comments)
+  
+  app.get('/console/articles/:productid/comments', console.comments)
 
   // Website
 

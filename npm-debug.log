@@ -1,0 +1,565 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'spm', '-g' ]
+info using npm@1.1.0-beta-10
+info using node@v0.6.7
+verbose config file /home/jiangche/.npmrc
+verbose config file /usr/local/etc/npmrc
+verbose config file /usr/local/lib/node_modules/npm/npmrc
+silly exec /usr/local/bin/node "/usr/local/lib/node_modules/npm/bin/npm-get-uid-gid.js" "nobody" 1000
+silly spawning [ '/usr/local/bin/node',
+silly spawning   [ '/usr/local/lib/node_modules/npm/bin/npm-get-uid-gid.js',
+silly spawning     'nobody',
+silly spawning     1000 ],
+silly spawning   null ]
+silly output from getuid/gid {"uid":65534,"gid":1000}
+silly output from getuid/gid 
+verbose into /usr/local/lib [ 'spm' ]
+verbose cache add spm
+verbose cache add [ 'spm', null ]
+silly cache add: name, spec, args [ undefined, 'spm', [ 'spm', null ] ]
+verbose parsed url { pathname: 'spm', path: 'spm', href: 'spm' }
+verbose addNamed [ 'spm', '' ]
+verbose addNamed [ null, '' ]
+silly name, range, hasData [ 'spm', '', false ]
+verbose raw, before any munging spm
+verbose url resolving [ 'https://registry.npmjs.org/', './spm' ]
+verbose url resolved https://registry.npmjs.org/spm
+verbose etag "1QDZCAFR3QD6YE0JTYTKZQRJ1"
+http GET https://registry.npmjs.org/spm
+http 304 https://registry.npmjs.org/spm
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.2.1 (Erlang OTP/R15B)',
+silly get cb     etag: '"1QDZCAFR3QD6YE0JTYTKZQRJ1"',
+silly get cb     date: 'Thu, 24 Jan 2013 08:38:59 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag spm from cache
+silly name, range, hasData 2 [ 'spm', '', true ]
+silly versions [ 'spm', [ '0.2.0', '0.2.1', '0.3.0', '0.4.0', '0.4.1' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8o-v83.6.6.15-linux-x64-2.6.38-12-generic',
+verbose bin dist   { shasum: '9d4a42dd67e14dfaed008275eaf3c96715d384ae',
+verbose bin dist     tarball: 'http://registry.npmjs.org/spm/-/spm-0.4.1.tgz' } ]
+verbose caching /home/jiangche/.npm/spm/0.4.1/package/package.json
+verbose loadDefaults spm@0.4.1
+silly resolved [ { name: 'spm',
+silly resolved     version: '0.4.1',
+silly resolved     description: 'A Package Manager for SeaJS',
+silly resolved     homepage: 'https://github.com/seajs/spm',
+silly resolved     keywords: [ 'seajs', 'module', 'package', 'optimization', 'tool' ],
+silly resolved     author: { name: 'Frank Wang', email: 'lifesinger@gmail.com' },
+silly resolved     contributors: [ { name: 'Frank Xu', email: 'yyfrankyy@gmail.com' } ],
+silly resolved     engines: { node: '>= 0.6.3' },
+silly resolved     dependencies: { 'uglify-js': '>= 1.1.1', seajs: '>= 1.1.0' },
+silly resolved     repository: { type: 'git', url: 'git://github.com/seajs/spm.git' },
+silly resolved     main: './lib/spm.js',
+silly resolved     bin: { spm: './bin/spm' },
+silly resolved     preferGlobal: true,
+silly resolved     _id: 'spm@0.4.1',
+silly resolved     devDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.0-beta-10',
+silly resolved     _nodeVersion: 'v0.6.7',
+silly resolved     _defaultsLoaded: true,
+silly resolved     scripts: {} } ]
+info into /usr/local/lib spm@0.4.1
+info installOne spm@0.4.1
+info unbuild /usr/local/lib/node_modules/spm
+verbose from cache /home/jiangche/.npm/spm/0.4.1/package/package.json
+verbose mkdir (expected) error ENOENT, no such file or directory '/usr/local/lib/node_modules/___spm.npm'
+verbose mkdir done: /usr/local/lib/node_modules/___spm.npm 755
+verbose unpack_ uid, gid [ 65534, 1000 ]
+verbose unpackTarget /usr/local/lib/node_modules/spm
+silly gunzTarPerm modes [ '755', '644' ]
+silly afterUntar undefined
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/README.md
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/package.json
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/bin
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/bin/spm-autocompletion.bash
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/bin/spm
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/bin/spm.cmd
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/spm.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/config.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/actions
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/actions/completion.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/actions/action_factory.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/actions/help.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/actions/install.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/actions/action.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/actions/transport.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/actions/build.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/utils
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/utils/loader_config.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/utils/dependences.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/utils/colors.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/utils/string.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/utils/annotation.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/utils/win_os.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/utils/options.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/utils/ast.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/utils/fs_ext.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/utils/compressor.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/lib/utils/combo.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/index.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/actions
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/actions/completion.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/actions/help.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/actions/install.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/actions/action.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/actions/transport.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/actions/build.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/utils
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/utils/loader_config.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/utils/dependences.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/utils/annotation.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/utils/compressor.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/utils/combo.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/issues
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/issues/conditional-compile
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/issues/conditional-compile/main.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/issues/conditional-compile/build-config.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/issues/conditional-compile/zh-cn.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/issues/conditional-compile/en-us.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/issues/conditional-compile/test.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/issues/conditional-compile/expected
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/issues/conditional-compile/expected/main.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/dependences
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/dependences/dynamic_deps_2.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/dependences/static_deps_1.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/dependences/static_deps_4.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/dependences/deps_4.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/dependences/deps_5.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/dependences/deps_3.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/dependences/deps_6.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/dependences/throw_error_1.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/dependences/deps_1.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/dependences/meta_1.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/dependences/dynamic_deps_1.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/dependences/static_deps_3.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/dependences/static_deps_2.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/dependences/deps_2.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/dependences/meta_2.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/configs
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/configs/seajs_config_2.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/configs/build_config.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/configs/seajs_config.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/transports
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/transports/seajs_transport.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/transports/mustache_package.json
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/transports/mustache_transport.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/transports/kissy_transport.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/transports/backbone_package.json
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/transports/seajs_package.json
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/transports/backbone_transport.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/install
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/install/json
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/install/json/1.0.1
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/install/json/1.0.1/json.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/out_path
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/out_path/main.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/out_path/build-config.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/excludes
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/excludes/build-config.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/excludes/program.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/excludes/a.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/excludes/libs
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/excludes/libs/lib-z.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/excludes/libs/lib-x.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/excludes/expected
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/excludes/expected/combo_2.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/excludes/expected/combo.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/define_json
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/define_json/primitive.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/define_json/array.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/define_json/program.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/define_json/object.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/define_json/expected
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/define_json/expected/combo.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/compiler_options
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/compiler_options/main.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/compiler_options/build-config.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/compiler_options/expected
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/compiler_options/expected/main.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/top_level
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/top_level/build_config.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/top_level/program.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/top_level/lib
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/top_level/lib/math.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/top_level/expected
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/top_level/expected/combo_all_2.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/top_level/expected/combo.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/top_level/expected/combo_all.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/top_level/lib2
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/top_level/lib2/math.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/top_level/biz
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/top_level/biz/increment.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/require_css
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/require_css/style.css
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/require_css/program.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/require_css/expected
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/require_css/expected/combo.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/math
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/math/math.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/math/increment.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/math/program.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/math/expected
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/math/expected/math.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/math/expected/increment.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/math/expected/program.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/math/expected/combo.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/deep
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/deep/expected
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/deep/expected/math.js
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/deep/sub
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/deep/sub/biz
+silly asyncMap in gTP /usr/local/lib/node_modules/___spm.npm/package/test/data/modules/deep/sub/biz/math.js
+verbose gunzed /usr/local/lib/node_modules/___spm.npm/package
+verbose rm'ed /usr/local/lib/node_modules/spm
+verbose renamed [ '/usr/local/lib/node_modules/___spm.npm/package',
+verbose renamed   '/usr/local/lib/node_modules/spm' ]
+verbose caching /usr/local/lib/node_modules/spm/package.json
+verbose loadDefaults spm@0.4.1
+info preinstall spm@0.4.1
+verbose from cache /usr/local/lib/node_modules/spm/package.json
+verbose into /usr/local/lib/node_modules/spm [ 'uglify-js@>= 1.1.1', 'seajs@>= 1.1.0' ]
+verbose cache add uglify-js@>= 1.1.1
+verbose cache add [ 'uglify-js@>= 1.1.1', null ]
+silly cache add: name, spec, args [ undefined,
+silly cache add: name, spec, args   'uglify-js@>= 1.1.1',
+silly cache add: name, spec, args   [ 'uglify-js@>= 1.1.1', null ] ]
+verbose parsed url { pathname: 'uglify-js@',
+verbose parsed url   path: 'uglify-js@',
+verbose parsed url   href: 'uglify-js@' }
+silly cache add: name, spec, args [ 'uglify-js', '>= 1.1.1', [ 'uglify-js', '>= 1.1.1' ] ]
+verbose parsed url { pathname: '=', path: '=', href: '=' }
+verbose addNamed [ 'uglify-js', '>= 1.1.1' ]
+verbose addNamed [ null, '>=1.1.1' ]
+silly name, range, hasData [ 'uglify-js', '>=1.1.1', false ]
+verbose cache add seajs@>= 1.1.0
+verbose cache add [ 'seajs@>= 1.1.0', null ]
+silly cache add: name, spec, args [ undefined, 'seajs@>= 1.1.0', [ 'seajs@>= 1.1.0', null ] ]
+verbose parsed url { pathname: 'seajs@', path: 'seajs@', href: 'seajs@' }
+silly cache add: name, spec, args [ 'seajs', '>= 1.1.0', [ 'seajs', '>= 1.1.0' ] ]
+verbose parsed url { pathname: '=', path: '=', href: '=' }
+verbose addNamed [ 'seajs', '>= 1.1.0' ]
+verbose addNamed [ null, '>=1.1.0' ]
+silly name, range, hasData [ 'seajs', '>=1.1.0', false ]
+verbose raw, before any munging seajs
+verbose url resolving [ 'https://registry.npmjs.org/', './seajs' ]
+verbose url resolved https://registry.npmjs.org/seajs
+verbose etag "B2D4PO2ND7MB7Q2X89RFB8XHN"
+http GET https://registry.npmjs.org/seajs
+verbose raw, before any munging uglify-js
+verbose url resolving [ 'https://registry.npmjs.org/', './uglify-js' ]
+verbose url resolved https://registry.npmjs.org/uglify-js
+verbose etag "BKA2P27QM3UVPSYTIDSK8F8V6"
+http GET https://registry.npmjs.org/uglify-js
+http 304 https://registry.npmjs.org/uglify-js
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.2.1 (Erlang OTP/R15B)',
+silly get cb     etag: '"BKA2P27QM3UVPSYTIDSK8F8V6"',
+silly get cb     date: 'Thu, 24 Jan 2013 08:39:03 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag uglify-js from cache
+silly name, range, hasData 2 [ 'uglify-js', '>=1.1.1', true ]
+silly versions [ 'uglify-js',
+silly versions   [ '0.0.1',
+silly versions     '0.0.2',
+silly versions     '0.0.3',
+silly versions     '0.0.4',
+silly versions     '0.0.5',
+silly versions     '1.0.1',
+silly versions     '1.0.2',
+silly versions     '1.0.3',
+silly versions     '1.0.4',
+silly versions     '1.0.5',
+silly versions     '1.0.6',
+silly versions     '1.0.7',
+silly versions     '1.1.0',
+silly versions     '1.1.1',
+silly versions     '1.2.0',
+silly versions     '1.2.1',
+silly versions     '1.2.2',
+silly versions     '1.2.3',
+silly versions     '1.2.4',
+silly versions     '1.2.5',
+silly versions     '1.2.6',
+silly versions     '1.3.0',
+silly versions     '1.3.1',
+silly versions     '1.3.2',
+silly versions     '1.3.3',
+silly versions     '1.3.4',
+silly versions     '2.2.0',
+silly versions     '2.2.1',
+silly versions     '2.2.2',
+silly versions     '2.2.3' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8o-v83.6.6.15-linux-x64-2.6.38-12-generic',
+verbose bin dist   { shasum: 'a60c6f7234e971e4522a79d27da006589f8911b4',
+verbose bin dist     tarball: 'http://registry.npmjs.org/uglify-js/-/uglify-js-2.2.3.tgz' } ]
+verbose caching /home/jiangche/.npm/uglify-js/2.2.3/package/package.json
+verbose loadDefaults uglify-js@2.2.3
+http 304 https://registry.npmjs.org/seajs
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.2.1 (Erlang OTP/R15B)',
+silly get cb     etag: '"B2D4PO2ND7MB7Q2X89RFB8XHN"',
+silly get cb     date: 'Thu, 24 Jan 2013 08:39:13 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag seajs from cache
+silly name, range, hasData 2 [ 'seajs', '>=1.1.0', true ]
+silly versions [ 'seajs', [ '1.1.0', '1.2.0', '1.2.1', '1.3.0' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8o-v83.6.6.15-linux-x64-2.6.38-12-generic',
+verbose bin dist   { shasum: '4058f8713316e25e2126135030a6f34fe2c60ec1',
+verbose bin dist     tarball: 'http://registry.npmjs.org/seajs/-/seajs-1.3.0.tgz' } ]
+WARN seajs@1.3.0 dependencies field should be hash of <name>:<version-range> pairs
+verbose caching /home/jiangche/.npm/seajs/1.3.0/package/package.json
+verbose loadDefaults seajs@1.3.0
+silly resolved [ { name: 'uglify-js',
+silly resolved     description: 'JavaScript parser, mangler/compressor and beautifier toolkit',
+silly resolved     homepage: 'http://lisperator.net/uglifyjs',
+silly resolved     main: 'tools/node.js',
+silly resolved     version: '2.2.3',
+silly resolved     engines: { node: '>=0.4.0' },
+silly resolved     maintainers: 
+silly resolved      [ { name: 'Mihai Bazon',
+silly resolved          email: 'mihai.bazon@gmail.com',
+silly resolved          url: 'http://lisperator.net/' } ],
+silly resolved     repositories: [ { type: 'git', url: 'https://github.com/mishoo/UglifyJS2.git' } ],
+silly resolved     dependencies: { 'source-map': '~0.1.7', optimist: '~0.3.5' },
+silly resolved     bin: { uglifyjs: 'bin/uglifyjs' },
+silly resolved     scripts: { test: 'node test/run-tests.js' },
+silly resolved     _id: 'uglify-js@2.2.3',
+silly resolved     devDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.0-beta-10',
+silly resolved     _nodeVersion: 'v0.6.7',
+silly resolved     _defaultsLoaded: true },
+silly resolved   { name: 'seajs',
+silly resolved     version: '1.3.0',
+silly resolved     description: 'A Module Loader for the Web',
+silly resolved     homepage: 'http://seajs.org/',
+silly resolved     keywords: [ 'loader', 'module', 'CommonJS', 'browser', 'CMD' ],
+silly resolved     author: { name: 'Frank Wang', email: 'lifesinger@gmail.com' },
+silly resolved     engines: { node: '>= 0.6.0' },
+silly resolved     dependencies: {},
+silly resolved     repository: { type: 'git', url: 'git://github.com/seajs/seajs.git' },
+silly resolved     main: './lib/sea-node.js',
+silly resolved     preferGlobal: true,
+silly resolved     output: 
+silly resolved      { 'sea.js': 
+silly resolved         [ 'sea.js',
+silly resolved           'util-lang.js',
+silly resolved           'util-log.js',
+silly resolved           'util-path.js',
+silly resolved           'util-fetch.js',
+silly resolved           'util-deps.js',
+silly resolved           'module.js',
+silly resolved           'config.js',
+silly resolved           'prepare.js',
+silly resolved           'bootstrap.js' ] },
+silly resolved     _id: 'seajs@1.3.0',
+silly resolved     devDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.0-beta-10',
+silly resolved     _nodeVersion: 'v0.6.7',
+silly resolved     _defaultsLoaded: true,
+silly resolved     scripts: {} } ]
+info into /usr/local/lib/node_modules/spm uglify-js@2.2.3
+info into /usr/local/lib/node_modules/spm seajs@1.3.0
+info installOne uglify-js@2.2.3
+info installOne seajs@1.3.0
+info unbuild /usr/local/lib/node_modules/spm/node_modules/uglify-js
+info unbuild /usr/local/lib/node_modules/spm/node_modules/seajs
+verbose from cache /home/jiangche/.npm/uglify-js/2.2.3/package/package.json
+verbose from cache /home/jiangche/.npm/seajs/1.3.0/package/package.json
+verbose mkdir (expected) error ENOENT, no such file or directory '/usr/local/lib/node_modules/spm/node_modules'
+verbose mkdir (expected) error ENOENT, no such file or directory '/usr/local/lib/node_modules/spm/node_modules'
+verbose mkdir (expected) error ENOENT, no such file or directory '/usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm'
+verbose mkdir (expected) error ENOENT, no such file or directory '/usr/local/lib/node_modules/spm/node_modules/___seajs.npm'
+verbose mkdir done: /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm 755
+verbose mkdir done: /usr/local/lib/node_modules/spm/node_modules/___seajs.npm 755
+verbose unpack_ uid, gid [ 65534, 1000 ]
+verbose unpackTarget /usr/local/lib/node_modules/spm/node_modules/uglify-js
+silly gunzTarPerm modes [ '755', '644' ]
+verbose unpack_ uid, gid [ 65534, 1000 ]
+verbose unpackTarget /usr/local/lib/node_modules/spm/node_modules/seajs
+silly gunzTarPerm modes [ '755', '644' ]
+silly afterUntar undefined
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package/package.json
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package/dist
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package/dist/sea-debug.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package/dist/sea.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package/dist/plugin-less.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package/dist/plugin-i18n.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package/dist/plugin-json.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package/dist/plugin-debug.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package/dist/plugin-combo.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package/dist/plugin-coffee.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package/dist/plugin-text.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package/dist/plugin-base.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package/dist/plugin-reload.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package/dist/plugin-warning.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package/lib
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package/lib/sea-node.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package/lib/helper.js
+verbose gunzed /usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package
+verbose rm'ed /usr/local/lib/node_modules/spm/node_modules/seajs
+verbose renamed [ '/usr/local/lib/node_modules/spm/node_modules/___seajs.npm/package',
+verbose renamed   '/usr/local/lib/node_modules/spm/node_modules/seajs' ]
+verbose caching /usr/local/lib/node_modules/spm/node_modules/seajs/package.json
+verbose loadDefaults seajs@1.3.0
+info preinstall seajs@1.3.0
+verbose from cache /usr/local/lib/node_modules/spm/node_modules/seajs/package.json
+verbose into /usr/local/lib/node_modules/spm/node_modules/seajs []
+silly resolved []
+verbose about to build /usr/local/lib/node_modules/spm/node_modules/seajs
+info build /usr/local/lib/node_modules/spm/node_modules/seajs
+verbose from cache /usr/local/lib/node_modules/spm/node_modules/seajs/package.json
+verbose linkStuff [ true,
+verbose linkStuff   '/usr/local/lib/node_modules',
+verbose linkStuff   false,
+verbose linkStuff   '/usr/local/lib/node_modules/spm/node_modules' ]
+info linkStuff seajs@1.3.0
+verbose linkBins seajs@1.3.0
+verbose linkMans seajs@1.3.0
+verbose rebuildBundles seajs@1.3.0
+info install seajs@1.3.0
+info postinstall seajs@1.3.0
+verbose installOne cb seajs@1.3.0
+silly afterUntar undefined
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/README.md
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/.npmignore
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/package.json
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/tools
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/tools/node.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/lib
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/lib/utils.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/lib/compress.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/lib/transform.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/lib/mozilla-ast.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/lib/scope.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/lib/parse.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/lib/ast.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/lib/sourcemap.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/lib/output.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/bin
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/bin/uglifyjs
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/test
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/test/run-tests.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/test/compress
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/test/compress/issue-12.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/test/compress/properties.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/test/compress/issue-44.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/test/compress/debugger.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/test/compress/issue-22.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/test/compress/blocks.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/test/compress/drop-unused.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/test/compress/switch.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/test/compress/dead-code.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/test/compress/conditionals.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/test/compress/labels.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/test/compress/loops.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/test/compress/issue-59.js
+silly asyncMap in gTP /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package/test/compress/sequences.js
+verbose gunzed /usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package
+verbose rm'ed /usr/local/lib/node_modules/spm/node_modules/uglify-js
+verbose renamed [ '/usr/local/lib/node_modules/spm/node_modules/___uglify-js.npm/package',
+verbose renamed   '/usr/local/lib/node_modules/spm/node_modules/uglify-js' ]
+verbose caching /usr/local/lib/node_modules/spm/node_modules/uglify-js/package.json
+verbose loadDefaults uglify-js@2.2.3
+info preinstall uglify-js@2.2.3
+verbose from cache /usr/local/lib/node_modules/spm/node_modules/uglify-js/package.json
+verbose into /usr/local/lib/node_modules/spm/node_modules/uglify-js [ 'source-map@~0.1.7', 'optimist@~0.3.5' ]
+verbose cache add source-map@~0.1.7
+verbose cache add [ 'source-map@~0.1.7', null ]
+silly cache add: name, spec, args [ undefined, 'source-map@~0.1.7', [ 'source-map@~0.1.7', null ] ]
+verbose parsed url { pathname: 'source-map@~0.1.7',
+verbose parsed url   path: 'source-map@~0.1.7',
+verbose parsed url   href: 'source-map@~0.1.7' }
+silly cache add: name, spec, args [ 'source-map', '~0.1.7', [ 'source-map', '~0.1.7' ] ]
+verbose parsed url { pathname: '~0.1.7', path: '~0.1.7', href: '~0.1.7' }
+verbose addNamed [ 'source-map', '~0.1.7' ]
+verbose addNamed [ null, '>=0.1.7- <0.2.0-' ]
+silly name, range, hasData [ 'source-map', '>=0.1.7- <0.2.0-', false ]
+verbose cache add optimist@~0.3.5
+verbose cache add [ 'optimist@~0.3.5', null ]
+silly cache add: name, spec, args [ undefined, 'optimist@~0.3.5', [ 'optimist@~0.3.5', null ] ]
+verbose parsed url { pathname: 'optimist@~0.3.5',
+verbose parsed url   path: 'optimist@~0.3.5',
+verbose parsed url   href: 'optimist@~0.3.5' }
+silly cache add: name, spec, args [ 'optimist', '~0.3.5', [ 'optimist', '~0.3.5' ] ]
+verbose parsed url { pathname: '~0.3.5', path: '~0.3.5', href: '~0.3.5' }
+verbose addNamed [ 'optimist', '~0.3.5' ]
+verbose addNamed [ null, '>=0.3.5- <0.4.0-' ]
+silly name, range, hasData [ 'optimist', '>=0.3.5- <0.4.0-', false ]
+verbose raw, before any munging optimist
+verbose url resolving [ 'https://registry.npmjs.org/', './optimist' ]
+verbose url resolved https://registry.npmjs.org/optimist
+verbose etag "8K2XPMWHD610D1IIKD68H5G8C"
+http GET https://registry.npmjs.org/optimist
+verbose raw, before any munging source-map
+verbose url resolving [ 'https://registry.npmjs.org/', './source-map' ]
+verbose url resolved https://registry.npmjs.org/source-map
+verbose etag "AEIJ5U1HEC1XK0O5BV3J0JJDV"
+http GET https://registry.npmjs.org/source-map
+http 304 https://registry.npmjs.org/source-map
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.2.1 (Erlang OTP/R15B)',
+silly get cb     etag: '"AEIJ5U1HEC1XK0O5BV3J0JJDV"',
+silly get cb     date: 'Thu, 24 Jan 2013 08:39:16 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag source-map from cache
+silly name, range, hasData 2 [ 'source-map', '>=0.1.7- <0.2.0-', true ]
+silly versions [ 'source-map',
+silly versions   [ '0.0.0', '0.1.0', '0.1.1', '0.1.2', '0.1.3' ] ]
+verbose about to build /usr/local/lib/node_modules/spm/node_modules/uglify-js
+ERR! error installing uglify-js@2.2.3
+info unbuild /usr/local/lib/node_modules/spm/node_modules/uglify-js
+verbose from cache /usr/local/lib/node_modules/spm/node_modules/uglify-js/package.json
+info preuninstall uglify-js@2.2.3
+info uninstall uglify-js@2.2.3
+verbose unbuild uglify-js@2.2.3 [ false,
+verbose unbuild uglify-js@2.2.3   '/usr/local/lib/node_modules',
+verbose unbuild uglify-js@2.2.3   '/usr/local/lib/node_modules/spm/node_modules' ]
+verbose binRoot [ '/usr/local/lib/node_modules/spm/node_modules/.bin',
+verbose binRoot   { uglifyjs: 'bin/uglifyjs' } ]
+info postuninstall uglify-js@2.2.3
+verbose installOne cb uglify-js@2.2.3
+verbose about to build /usr/local/lib/node_modules/spm
+ERR! error installing spm@0.4.1
+info unbuild /usr/local/lib/node_modules/spm
+verbose from cache /usr/local/lib/node_modules/spm/package.json
+info preuninstall spm@0.4.1
+info uninstall spm@0.4.1
+verbose unbuild spm@0.4.1 [ true,
+verbose unbuild spm@0.4.1   '/usr/local/lib/node_modules',
+verbose unbuild spm@0.4.1   '/usr/local/lib/node_modules' ]
+verbose binRoot [ '/usr/local/bin', { spm: './bin/spm' } ]
+info postuninstall spm@0.4.1
+verbose installOne cb spm@0.4.1
+ERR! Error: No compatible version found: source-map@'>=0.1.7- <0.2.0-'
+ERR! Valid install targets:
+ERR! ["0.0.0","0.1.0","0.1.1","0.1.2","0.1.3"]
+ERR!     at installTargetsError (/usr/local/lib/node_modules/npm/lib/cache.js:488:10)
+ERR!     at next_ (/usr/local/lib/node_modules/npm/lib/cache.js:438:17)
+ERR!     at next (/usr/local/lib/node_modules/npm/lib/cache.js:415:44)
+ERR!     at /usr/local/lib/node_modules/npm/lib/cache.js:408:5
+ERR!     at Object.saved [as oncomplete] (/usr/local/lib/node_modules/npm/lib/utils/npm-registry-client/get.js:147:7)
+ERR! Report this *entire* log at:
+ERR!     <http://github.com/isaacs/npm/issues>
+ERR! or email it to:
+ERR!     <npm-@googlegroups.com>
+ERR! 
+ERR! System Linux 2.6.38-12-generic
+ERR! command "node" "/usr/local/bin/npm" "install" "spm" "-g"
+ERR! cwd /home/jiangche/projects/nodejs/smphone
+ERR! node -v v0.6.7
+ERR! npm -v 1.1.0-beta-10
+ERR! message No compatible version found: source-map@'>=0.1.7- <0.2.0-'
+ERR! message Valid install targets:
+ERR! message ["0.0.0","0.1.0","0.1.1","0.1.2","0.1.3"]
+verbose exit [ 1, true ]

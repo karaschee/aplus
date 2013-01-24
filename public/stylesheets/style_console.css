@@ -1,11 +1,15 @@
-body { padding:30px; min-width:960; }
+body { padding:30px; min-width:960px; }
 
 #console_index{
-  padding:10px;
+  padding-bottom:10px;
   border:1px solid #ccc;
   background:#efefef;
   font-size:12px;
 }
+#console_index dt { font-size:14px; font-weight:bold; padding:10px 0 4px 15px; }
+#console_index li a { display:block; padding:3px 0 3px 35px; color:#333; }
+#console_index li a:hover { background:#003366; text-decoration:none; color:#fff; }
+
 #console_content { padding:0 20px; }
 
 .console_form { width:630px; }
