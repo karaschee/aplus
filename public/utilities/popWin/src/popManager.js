@@ -13,8 +13,9 @@
  * 		p.div.appendTo('body') 将层放到dom树中
  */
 
-;if(!$.popManager)
-(function($) {
+define(function(require, exports){
+  var $ = require('gallery/jquery/1.8.3/jquery.js');
+
 	var  EMPTY_$ = $('')
 		,base_z_index = 1000
 		,html_string = '<div id="html" class="popManager"></div>'
@@ -96,4 +97,4 @@
 	$.extend({
 		popManager: m
 	});
-})(jQuery);
+});

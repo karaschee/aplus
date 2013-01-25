@@ -28,47 +28,47 @@ block content
     input(id="input_reply", type="text")
     input(id="confirm_eidt_reply", type="button", value="提交")  
 
-  script(type="text/javascript", src="/javascripts/popWin/popManager.js")
-  script(type="text/javascript", src="/javascripts/popWin/popWin.js")
   script(type="text/javascript")
-    $(function(){
-      var btnShowReply = $('.edit_reply'),
-          txtReply = $('#input_reply'),
-          btnEditReply = $('#confirm_eidt_reply'),
-          boxEditReply = $('#edit_reply_box'),
-          elemUser = $('#rely_user'),
-          elemComment = $('#comment_quote');
-      //- var pop = $.popWin.init({
-      //-   title:"回复"
-      //- });
+    seajs.use(['gallery/jquery/1.8.3/jquery', '/utilities/popWin/src/popWin'], function($){
+      $(function(){
+        var btnShowReply = $('.edit_reply'),
+            txtReply = $('#input_reply'),
+            btnEditReply = $('#confirm_eidt_reply'),
+            boxEditReply = $('#edit_reply_box'),
+            elemUser = $('#rely_user'),
+            elemComment = $('#comment_quote');
+        var pop = $.popWin.init({
+          title:"回复"
+        });
 
-      //- pop.content.append(boxEditReply);
+        //- pop.content.append(boxEditReply);
 
-      btnShowReply.click(function(){
-        var row = $(this).closest('tr')
-        var comment = row.find('.comment').text(),
-            reply = row.find('.reply').text(),
-            user = row.find('.user').text();
+        btnShowReply.click(function(){
+          var row = $(this).closest('tr')
+          var comment = row.find('.comment').text(),
+              reply = row.find('.reply').text(),
+              user = row.find('.user').text();
 
-        elemUser.text(user);
-        elemComment.text(comment);
-        txtReply.val(reply);
-        btnEditReply.data("id", row.attr('data-id'));
+          elemUser.text(user);
+          elemComment.text(comment);
+          txtReply.val(reply);
+          btnEditReply.data("id", row.attr('data-id'));
 
-        //pop.show();
-        return false;
-      });
+          //pop.show();
+          return false;
+        });
 
-      btnEditReply.click(function(){
-        var txt = txtReply.val();
-        if(txt === ''){
-          alert('回复不能为空');
-          return;
-        }
-        $.post('/comments/' + $(this).data('id') + '/update', {
-          content:txtReply.val()
-        }, function(){
-          alert('发送成功');
+        btnEditReply.click(function(){
+          var txt = txtReply.val();
+          if(txt === ''){
+            alert('回复不能为空');
+            return;
+          }
+          $.post('/comments/' + $(this).data('id') + '/update', {
+            content:txtReply.val()
+          }, function(){
+            alert('发送成功');
+          });
         });
       });
-    });
+    })

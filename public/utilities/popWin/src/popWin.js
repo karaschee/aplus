@@ -19,8 +19,10 @@
  *		
  */
 
-;if(!$.popWin)
-(function($, undef) {
+define(function(require, exports){
+  var $ = require('gallery/jquery/1.8.3/jquery.js');
+  require('./popManager');
+  
 	var ie6 = /*@cc_on!@*/!1 && /msie 6.0/i.test(navigator.userAgent) && !/msie 7.0/i.test(navigator.userAgent);
 	
 	var  EMPTY_$ = $('')
@@ -150,4 +152,4 @@
 	$.extend({
 		popWin: popWin
 	});
-})(jQuery);
+});

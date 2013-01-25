@@ -1,0 +1,7 @@
+{
+    "name":"popWin",
+    "output":{
+      "popWin.js":".",
+      "popManager.js":"."
+    }
+}
