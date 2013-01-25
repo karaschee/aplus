@@ -19,9 +19,9 @@
  *		
  */
 
-define(function(require, exports){
-  var $ = require('gallery/jquery/1.8.3/jquery.js');
-  require('./popManager');
+define(function(require, exports, module){
+	var $ = require('$');
+	require('./popManager');
   
 	var ie6 = /*@cc_on!@*/!1 && /msie 6.0/i.test(navigator.userAgent) && !/msie 7.0/i.test(navigator.userAgent);
 	
@@ -152,4 +152,6 @@ define(function(require, exports){
 	$.extend({
 		popWin: popWin
 	});
+
+	module.exports = popWin;
 });

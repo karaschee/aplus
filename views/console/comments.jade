@@ -20,7 +20,7 @@ block content
         td
           a(class="edit_reply", href="javascript:void(0)")= comment.reply ? "修改回复" : "添加回复"
 
-  div#edit_reply_box.hd
+  div#edit_reply_box.dn
     p
       span#rely_user
       | 的评论：
@@ -29,7 +29,7 @@ block content
     input(id="confirm_eidt_reply", type="button", value="提交")  
 
   script(type="text/javascript")
-    seajs.use(['gallery/jquery/1.8.3/jquery', '/utilities/popWin/src/popWin'], function($){
+    seajs.use(['$', 'popWin'], function($, popWin){
       $(function(){
         var btnShowReply = $('.edit_reply'),
             txtReply = $('#input_reply'),
@@ -37,11 +37,12 @@ block content
             boxEditReply = $('#edit_reply_box'),
             elemUser = $('#rely_user'),
             elemComment = $('#comment_quote');
-        var pop = $.popWin.init({
+        var pop = popWin.init({
           title:"回复"
         });
 
-        //- pop.content.append(boxEditReply);
+        pop.content.append(boxEditReply);
+        boxEditReply.show();
 
         btnShowReply.click(function(){
           var row = $(this).closest('tr')
@@ -54,7 +55,7 @@ block content
           txtReply.val(reply);
           btnEditReply.data("id", row.attr('data-id'));
 
-          //pop.show();
+          pop.show();
           return false;
         });
 

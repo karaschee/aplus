@@ -14,7 +14,8 @@
  */
 
 define(function(require, exports){
-  var $ = require('gallery/jquery/1.8.3/jquery.js');
+	var $ = require('$');
+	require('./popWin.css');
 
 	var  EMPTY_$ = $('')
 		,base_z_index = 1000
