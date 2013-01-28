@@ -18,14 +18,15 @@ block content
         td= comment.email
         td= $.formatDate(comment.create_at, true)
         td
-          a(class="edit_reply", href="javascript:void(0)")= comment.reply ? "修改回复" : "添加回复"
+          a(class="edit_reply", href="javascript:void(0)")= comment.reply ? "[ 修改回复 ]" : "[ 添加回复 ]"
+          a(class="delete_confirm", href="/comments/#{comment._id}/delete") [ 删除 ]
 
   div#edit_reply_box.dn
     p
       span#rely_user
       | 的评论：
       span#comment_quote
-    input(id="input_reply", type="text")
+    input(id="input_reply", class="text_input", type="text")
     input(id="confirm_eidt_reply", type="button", value="提交")  
 
   script(type="text/javascript")
@@ -61,14 +62,17 @@ block content
 
         btnEditReply.click(function(){
           var txt = txtReply.val();
-          if(txt === ''){
+          if($.trim(txt) === ''){
             alert('回复不能为空');
             return;
           }
-          $.post('/comments/' + $(this).data('id') + '/update', {
+          $.post('/comments/' + $(this).data('id') + '/reply', {
             content:txtReply.val()
-          }, function(){
-            alert('发送成功');
+          }, function(isUpdate){
+            if(isUpdate){
+              alert('发送成功');
+              pop.hide();
+            }
           });
         });
       });

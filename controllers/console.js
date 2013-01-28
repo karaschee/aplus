@@ -18,8 +18,13 @@ exports.products = function(req, res){
 
 // 不论是product还是article，统一处理
 exports.comments = function(req, res){
-  var result = req.result;
-  Comment.getByParentId(result._id, function(err, comments){
-    res.render('console/comments', {title:result.name+' 的评论', comments:comments});
-  });
+  if(req.query.id && req.query.title){  
+    Comment.getByParentId(req.query.id, function(err, comments){
+      res.render('console/comments', {title:req.query.title+' 的评论', comments:comments});
+    });
+  }else {
+    Comment.get({}, function(err, comments){
+      res.render('console/comments', {title:'所有评论', comments:comments});
+    });
+  }
 }

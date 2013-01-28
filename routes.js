@@ -18,11 +18,15 @@ module.exports = function(app){
   app.get('/products/:productid/edit', products.edit);
   app.post('/products/:productid/edit', products.update);
 
-  app.get('/products/:productid/delete', products.delete);
+  app.get('/products/:id/delete', products.delete);
 
   // Comment
 
-  app.post('/:collection/:id/comments/new', comments.save)
+  app.param('commentid', comments.getById);
+
+  app.post('/comments/new', comments.save);
+  app.get('/comments/:commentid/delete', comments.delete);
+  app.post('/comments/:commentid/reply', comments.reply);
 
   // Console
 
@@ -30,9 +34,8 @@ module.exports = function(app){
     res.redirect('/console/products');
   })
   app.get('/console/products', console.products);
-  app.get('/console/products/:productid/comments', console.comments)
-  
-  app.get('/console/articles/:productid/comments', console.comments)
+  app.get('/console/comments', console.comments);
+
 
   // Website
 

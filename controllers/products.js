@@ -54,7 +54,7 @@ exports.update = function(req, res){
 }
 
 exports.delete = function(req, res){
-  Product.delete(req.params.productid, function(err, fields){
+  Product.delete(req.params.id, function(err, fields){
     res.redirect('console/products');
   });
 }

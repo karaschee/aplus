@@ -14,4 +14,4 @@ block content
         td 
           a(href="/products/#{product._id}/edit") [ 编辑 ] 
           a(href="/products/#{product._id}/delete") [ 删除 ] 
-          a(href="/console/products/#{product._id}/comments") [ 查看留言 ]
+          a(href="/console/comments?title=#{product.name}&id=#{product._id}") [ 查看评论 ]

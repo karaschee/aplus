@@ -1,4 +1,4 @@
-form.formA(action="/#{collection}s/#{id}/comments/new", method="post")
+form.formA(action="/comments/new?collection=#{collection}&id=#{id}", method="post")
   .row
     label.key name
     input(name="user")
