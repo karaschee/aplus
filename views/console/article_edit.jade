@@ -1,0 +1,15 @@
+extends ../layout_console
+
+block content
+  h1= is_new?"新建文章":"编辑文章"
+  form.formA.console_form(action="/articles/#{is_new?"new":article._id+"/edit"}", method="post", enctype="multipart/form-data")
+    fieldset
+      legend 必填信息
+      .row
+        label.key 标题
+        input.text_input(type="text", name="title", value="#{$.blankStr(article.title)}")
+      .row
+        label.key 内容
+        textarea.text_input(name="content", rows="10", cols="35", value="#{$.blankStr(article.introduce)}")
+      .bottom
+        input(type="submit", value="提交表单")

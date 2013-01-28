@@ -1,4 +1,5 @@
 var db = require('./db');
+var lib = require('../lib')
 
 function Comment(data){
   data.create_at = new Date();
@@ -26,14 +27,14 @@ Comment.get = function(condition, callback){
     });
   // 根据条件查询
   }else {
-    db.collection('comment').find(condition, function(err, comments){
+    db.collection('comment').find(condition).sort({create_at:-1}, function(err, comments){
       callback(err, comments);
     });
   }
 }
 
 Comment.getByParentId = function(id, callback){
-  db.collection("comment").find({parent_id:db.ObjectId(id)}, function(err, comments){
+  db.collection("comment").find({parent_id:lib.getDbId(id)}).sort({create_at:-1}, function(err, comments){
     callback(err, comments);
   });
 }

@@ -1,8 +1,8 @@
 product collection:
 
 {
-  title:"最新iphone5更轻更薄更长",//自填
-  name:"iphone5",//自填
+  slogan:"最新iphone5更轻更薄更长",//自填
+  title:"iphone5",//自填
   brand:"苹果",//单选
   net:["GSM","CDMA","电信3G","联通3G","移动3G"],//多选
   OS:"ios",
@@ -50,7 +50,7 @@ article collection:
 
 {
   title:"本店新开张，欢迎光临",
-  keyword:["news","public"]//自填
+  //keyword:["news","public"]//自填
   content:"html code",
   create_at:Date object,
 }

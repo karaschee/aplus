@@ -1,0 +1,112 @@
+extends ../layout_console
+
+block content
+
+  mixin row(comment)
+    td.comment= comment.content
+    td.reply= comment.reply ? comment.reply : ""
+    td.user= comment.user
+    td= comment.email
+    td= $.formatDate(comment.create_at, true)
+    td
+      a(class="edit_reply", href="javascript:void(0)")= comment.reply ? "[ 修改回复 ]" : "[ 添加回复 ]"
+      a(class="delete_confirm", href="/comments/#{comment._id}/delete") [ 删除 ]
+
+  h1
+    if parentUrl
+      a(href="#{parentUrl}", target="_blank")= parent.title
+      |  的评论
+    else
+      | #{title}
+
+  table.table_normal
+    tr 
+      th 内容
+      th 回复
+      th 用户
+      th 邮箱
+      th 时间
+      th 操作
+    each comment in comments
+      if comment.parent
+        tr(data-id="#{comment._id}", data-pid="#{comment.parent._id}", data-ptitle="#{comment.parent.title}")
+          mixin row(comment)
+      else
+        tr(data-id="#{comment._id}")
+          mixin row(comment)
+
+  div#edit_reply_box.dn
+    p
+      strong#rely_user
+      |  在 
+      a(href="#", target="_blank")#original_title
+      |  中的评论：
+      br
+      span#comment_quote
+    p.mtm
+      textarea(id="input_reply", class="text_input", cols="40", rows="8")
+      br
+      input(id="confirm_eidt_reply", type="button", value="提交")  
+
+  script(type="text/javascript")
+    seajs.use(['$', 'popWin'], function($, popWin){
+      $(function(){
+        var parentTitle = #{parent && "'"+parent.title+"'"},
+            parentUrl = '#{parentUrl}';
+        var btnShowReply = $('.edit_reply'),
+            txtReply = $('#input_reply'),
+            btnEditReply = $('#confirm_eidt_reply'),
+            boxEditReply = $('#edit_reply_box'),
+            elemUser = $('#rely_user'),
+            elemComment = $('#comment_quote'),
+            elemTitle = $('#original_title');
+        var pop = popWin.init({
+          title:"回复"
+        });
+
+        pop.content.append(boxEditReply);
+        boxEditReply.show();
+
+        btnShowReply.click(function(){
+          var row = $(this).closest('tr')
+          var comment = row.find('.comment').text(),
+              reply = row.find('.reply').text(),
+              user = row.find('.user').text();
+
+          elemUser.text(user);
+          elemComment.text(comment);
+          if(parentTitle){
+            elemTitle.text(parentTitle);
+            elemTitle.attr('href', parentUrl)
+          }else {
+            elemTitle.text(row.attr('data-ptitle'));
+            elemTitle.attr('href', '/products/'+row.attr('data-pid'))
+          }
+          elemTitle.text();
+          txtReply.val(reply);
+          btnEditReply.data("id", row.attr('data-id'));
+          btnEditReply.data("replyItem", row.find('.reply'));
+
+          pop.show();
+          return false;
+        });
+
+        btnEditReply.click(function(){
+          var txt = txtReply.val();
+          var that = $(this);
+          if($.trim(txt) === ''){
+            alert('回复不能为空');
+            return;
+          }
+          $.post('/comments/' + that.data('id') + '/reply', {
+            content:txtReply.val()
+          }, function(isUpdate){
+            if(isUpdate){
+              alert('回复成功');
+              that.data('replyItem').text(txt);
+              pop.hide();
+            }
+          });
+        });
+      });
+    })

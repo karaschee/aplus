@@ -3,11 +3,12 @@ var db = require('./db');
 function Product(data){
   var product = {};
 
-  product.name = data.name;
+  product.title = data.title;
   product.brand = data.brand;
   product.image = data.image;
   product.introduce = data.introduce;
-  
+  product.create_at = new Date();
+
   product.params = {};
   product.params.color = data.color;
 
@@ -51,5 +52,5 @@ Product.delete = function(id, callback){
     callback(err, product);
   });
   
-  // $todo:删除图片
+  // $todo:删除图片\评论
 }

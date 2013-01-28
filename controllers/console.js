@@ -1,6 +1,7 @@
-var util = require('util');
 var Product = require('../models/product.js');
 var Comment = require('../models/comment.js');
+var Article = require('../models/article.js');
+var db = require('../models/db.js');
 
 // Console Product
 
@@ -16,15 +17,37 @@ exports.products = function(req, res){
   })
 }
 
-// 不论是product还是article，统一处理
+exports.articles = function(req, res){
+  Article.get({}, function(err, articles){
+    res.render('console/article_index',{title:'文章列表', articles:articles});
+  })
+}
+
+// 统一处理
 exports.comments = function(req, res){
-  if(req.query.id && req.query.title){  
-    Comment.getByParentId(req.query.id, function(err, comments){
-      res.render('console/comments', {title:req.query.title+' 的评论', comments:comments});
-    });
-  }else {
-    Comment.get({}, function(err, comments){
-      res.render('console/comments', {title:'所有评论', comments:comments});
-    });
-  }
+  var parent = req.result;
+  var collection = req.collection;
+  var parentUrl = '/' + collection + 's/' + parent._id;
+  Comment.getByParentId(parent._id, function(err, comments){
+    res.render('console/comment_index', {title:parent.title + ' 的评论', comments:comments, parent:parent, parentUrl:parentUrl});
+  });
+
+}
+
+exports.allComments = function(req, res){
+  var count = 0;
+  Comment.get({}, function(err, comments){
+    for(var i in comments){
+      var comment = comments[i];
+      (function(comment){
+        db.collection(comment.at).findOne({_id:comment.parent_id}, function(err, parent){
+          comment.parent = parent;
+          if(count++ === comments.length - 1){
+            console.log(comments);
+            res.render('console/comment_index', {title:'所有评论', comments:comments, parent:false, parentUrl:false});
+          }
+        })
+      })(comment);
+    }
+  });
 }

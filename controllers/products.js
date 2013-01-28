@@ -2,10 +2,11 @@ var util = require('util');
 var Product = require('../models/product.js');
 
 exports.getById = function(req, res, next, id) {
-  Product.get(id, function(err, result){
+  Product.get(id, function(err, product){
     if (err) return next(err);
-    if (!result) return next(new Error('Post loading failed'));
-    req.result = result;
+    if (!product) return next(new Error('Post loading failed'));
+    req.result = product;
+    req.collection = 'product';
     next();
   });
 }
@@ -27,7 +28,7 @@ exports.save = function(req, res){
   var newProduct = new Product(data);
   newProduct.save(function(err, product){
     console.log(err, product);
-    res.redirect('/console');
+    res.redirect('/console/products');
   });
 }
 
@@ -55,6 +56,6 @@ exports.update = function(req, res){
 
 exports.delete = function(req, res){
   Product.delete(req.params.id, function(err, fields){
-    res.redirect('console/products');
+    res.redirect('back');
   });
 }

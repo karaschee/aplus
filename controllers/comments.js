@@ -14,10 +14,10 @@ exports.save = function(req, res) {
 }
 
 exports.getById = function(req, res, next, id) {
-  Comment.get(id, function(err, result){
+  Comment.get(id, function(err, comment){
     if (err) return next(err);
-    if (!result) return next(new Error('Comment loading failed'));
-    req.result = result;
+    if (!comment) return next(new Error('Comment loading failed'));
+    req.result = comment;
     next();
   });
 }
@@ -25,7 +25,7 @@ exports.getById = function(req, res, next, id) {
 exports.delete = function(req, res){
   var comment = req.result;
   Comment.delete(req.params.commentid, function(err){
-    res.redirect('/console/'+comment.at+'s/'+comment.parent_id+'/comments/')
+    res.redirect('back')
   });
 }
 

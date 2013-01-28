@@ -1,3 +1,5 @@
+var db = require('./models/db.js');
+
 // from cnode lib.js
 
 exports.formatDate = function (date, friendly) {
@@ -86,4 +88,19 @@ exports.escape = function(html){
   .replace(/^\n\n/, '')
   .replace(/\n\n$/, '');
 };
+
+/**
+ * 将数据库中字符串id转换为object形式
+ *
+ * @param {String|Object} id
+ */
+exports.getDbId = function(id){
+  if(typeof id == 'object'){
+    return id;
+  }else if(typeof id == 'string' && id.length == 24){
+    return db.ObjectId(id);
+  }else {
+    return false;
+  }
+}
 

@@ -1,0 +1,17 @@
+extends ../layout_console
+
+block content
+  h1= title
+  table.table_normal
+    tr 
+      th 文章名称
+      th 创建时间
+      th 操作
+    each article in articles
+      tr
+        td= article.title
+        td= $.formatDate(article.create_at, true)
+        td 
+          a(href="/articles/#{article._id}/edit") [ 编辑 ] 
+          a(href="/articles/#{article._id}/delete") [ 删除 ] 
+          a(href="/console/articles/#{article._id}/comments") [ 查看评论 ]
