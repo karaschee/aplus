@@ -14,6 +14,7 @@
  */
 define("#popWin/0.0.1/popManager-debug", [ "$-debug" ], function(require, exports) {
     var $ = require("$-debug");
+    seajs.importStyle('.win1-wrap{background-color:#eceff5;border:1px solid #92b1dc;overflow:hidden;padding:1px;position:absolute;display:none;font-family:Arial,sans-serif;-webkit-box-shadow:0 1px 5px rgba(0,0,0,.3);-moz-box-shadow:0 1px 5px rgba(0,0,0,.3);box-shadow:0 1px 5px rgba(0,0,0,.3)}.win1-title-wrap{height:30px;line-height:30px;padding:0 20px 0 10px;position:relative;background-color:#0167BC;color:#fff}.win1-title{font-weight:700;display:block;width:100%;overflow:hidden;text-overflow:ellipsis}.win1-close{position:absolute;top:5px;right:5px;background:url("images/close.png") no-repeat 0 0;width:20px;height:20px;overflow:hidden}.win1-close:hover{background-position:0 -20px;text-decoration:none}.win1-content-wrap{border-top:1px solid #92b1dc;margin:1px -1px -1px;padding:5px;background:#f8fbff}.win1-content{padding:5px;cursor:default;background:#fff;overflow-y:auto}.win1-btns{text-align:right;padding:5px}.win1-btns input{width:72px;height:22px;line-height:22px;margin-left:8px;background:url("images/btn1.gif") no-repeat 0 0;border:0;cursor:pointer}.popManager{position:fixed;top:0;left:0;width:100%;height:100%;display:none}*html .popManager{position:absolute;left:expression(documentElement.scrollLeft+documentElement.clientWidth - this.offsetWidth);top:expression(documentElement.scrollTop+documentElement.clientHeight - this.offsetHeight)}*html{background:url(*) fixed}', "#popWin/0.0.1/popWin.css");
     var EMPTY_$ = $(""), base_z_index = 1e3, html_string = '<div id="html" class="popManager"></div>', ifr_string = '<iframe style="position:absolute;top:0;left:0;z-index:-1;width:100%;height:100%;filter:alpha(opacity=0);" frameborder="no" scrolling="no"></iframe>', mask_string = '<div id="mask" style="position:absolute;top:0;left:0;width:100%;height:100%;background-color:#000;filter:alpha(opacity=20);"></div>', ie6 = /*@cc_on!@*/ !1 && /msie 6.0/i.test(navigator.userAgent) && !/msie 7.0/i.test(navigator.userAgent), m = {}, _uid = 0, uid = function() {
         return ++_uid + base_z_index;
     };
@@ -100,7 +101,7 @@ define("#popWin/0.0.1/popManager-debug", [ "$-debug" ], function(require, export
  * 		p.hide() 隐藏弹出窗口
  *		
  */
-define("#popWin/0.0.1/popWin-debug", [ "./popManager-debug", "$-debug" ], function(require, exports) {
+define("#popWin/0.0.1/popWin-debug", [ "./popManager-debug", "./popWin.css", "$-debug" ], function(require, exports, module) {
     var $ = require("$-debug");
     require("./popManager-debug");
     var ie6 = /*@cc_on!@*/ !1 && /msie 6.0/i.test(navigator.userAgent) && !/msie 7.0/i.test(navigator.userAgent);
@@ -212,4 +213,5 @@ define("#popWin/0.0.1/popWin-debug", [ "./popManager-debug", "$-debug" ], functi
     $.extend({
         popWin: popWin
     });
+    module.exports = popWin;
 });

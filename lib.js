@@ -95,7 +95,7 @@ exports.escape = function(html){
  * @param {String|Object} id
  */
 exports.getDbId = function(id){
-  if(typeof id == 'object'){
+  if(typeof id == 'object' && id.toString().length == 24){
     return id;
   }else if(typeof id == 'string' && id.length == 24){
     return db.ObjectId(id);

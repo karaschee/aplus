@@ -1,5 +1,11 @@
 {
     "root": "#",
     "version": "0.0.1",
-    "name":"popWin"
+    "name":"popWin",
+    "output":{
+      "new.js":{
+        "main":"popWin.js",
+        "includes":"."
+      }
+    }
 }

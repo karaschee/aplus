@@ -11,42 +11,39 @@ module.exports = Comment;
 
 Comment.prototype.save = function(callback){
   db.collection("comment").insert(this.data, function(err, comment){
-    callback(err, comment);
+    callback && callback(err, comment);
   });
 }
 
 Comment.get = function(condition, callback){
+  var id = lib.getDbId(condition);
   // 如果直接传id的话
-  if(typeof condition == "string"){
-    if(condition.length != 24){
-      callback(new Error("the length of id is not 24"));
-      return;
-    }
-    db.collection('comment').findOne({_id:db.ObjectId(condition)}, function(err, comment){
-      callback(err, comment);
+  if(id){
+    db.collection('comment').findOne({_id:id}, function(err, comment){
+      callback && callback(err, comment);
     });
   // 根据条件查询
   }else {
     db.collection('comment').find(condition).sort({create_at:-1}, function(err, comments){
-      callback(err, comments);
+      callback && callback(err, comments);
     });
   }
 }
 
 Comment.getByParentId = function(id, callback){
   db.collection("comment").find({parent_id:lib.getDbId(id)}).sort({create_at:-1}, function(err, comments){
-    callback(err, comments);
+    callback && callback(err, comments);
   });
 }
 
 Comment.update = function(id, data, callback){
   db.collection("comment").update({_id:db.ObjectId(id)}, data, function(err, comments){
-    callback(err, comments);
+    callback && callback(err, comments);
   });
 }
 
 Comment.delete = function(id, callback){
   db.collection('comment').remove({_id:db.ObjectId(id)}, function(err, comment){
-    callback(err, comment);
+    callback && callback(err, comment);
   });
 }

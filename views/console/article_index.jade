@@ -5,11 +5,13 @@ block content
   table.table_normal
     tr 
       th 文章名称
+      th 点击
       th 创建时间
       th 操作
     each article in articles
       tr
         td= article.title
+        td= article.count
         td= $.formatDate(article.create_at, true)
         td 
           a(href="/articles/#{article._id}/edit") [ 编辑 ] 

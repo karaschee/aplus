@@ -5,10 +5,10 @@
 var express = require('express')
   , routes = require('./routes')
   , http = require('http')
-  , path = require('path')
-  , db = require('./models/db');
+  , path = require('path');
 
-var lib = require('./lib');
+var lib = require('./lib')
+  , config = require('./config');
 
 var app = express();
 
@@ -34,6 +34,7 @@ app.configure('development', function(){
 // Helpers
 
 app.locals.$ = lib;
+app.locals.config = config;
 
 // Routes
 

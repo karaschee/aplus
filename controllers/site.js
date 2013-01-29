@@ -1,6 +1,7 @@
 var Product = require('../models/product.js');
 var Article = require('../models/article.js');
 var Comment = require('../models/comment.js');
+var config = require('../config.js');
 var util = require('util')
 
 exports.products = function(req, res){
@@ -11,20 +12,32 @@ exports.products = function(req, res){
 
 exports.product = function(req, res){
   var product = req.result;
-  var comments = Comment.getByParentId(req.params.productid, function(err, comments){
+  product.count++;
+  Product.update(product._id, product);
+
+  Comment.getByParentId(req.params.productid, function(err, comments){
     res.render('website/product_detail', { title:'', product:product, comments:comments})
   })
 }
 
 exports.articles = function(req, res){
+  var page = Math.parseInt(req.query.page, 10) || 1;
+  var limit = config.articlesPerPage;
+  var count, pages;
   Article.get({}, function(err, articles){
-    res.render('website/article_index', { title:'', articles:articles})
+    count = articles.length;
+    pages = Math.ceil(count / limit) || 1;
+    //todo
+    //res.render('website/article_index', { title:'', articles:articles})
   });
 }
 
 exports.article = function(req, res){
   var article = req.result;
-  var comments = Comment.getByParentId(req.params.articleid, function(err, comments){
+  article.count++;
+  Article.update(article._id, article);
+
+  Comment.getByParentId(req.params.articleid, function(err, comments){
     res.render('website/article_detail', { title:'', article:article, comments:comments})
   })
 }

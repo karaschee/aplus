@@ -6,12 +6,14 @@ block content
     tr 
       th 产品名称
       th 品牌
+      th 点击
       th 创建时间
       th 操作
     each product in products
       tr
         td= product.title
         td= product.brand
+        td= product.count
         td= $.formatDate(product.create_at, true)
         td 
           a(href="/products/#{product._id}/edit") [ 编辑 ] 

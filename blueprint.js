@@ -13,6 +13,7 @@ product collection:
     camera：800, //单选
     type:"直板",
   },
+  counts:22,
   create_at:Date object,
   update_at:Date object
 }
@@ -53,4 +54,5 @@ article collection:
   //keyword:["news","public"]//自填
   content:"html code",
   create_at:Date object,
+  counts:22,
 }
