@@ -20,6 +20,18 @@ Article.prototype.save = function(callback){
   });
 }
 
+Article.count = function(callback){
+  db.collection('article').count(function(err, count){
+    callback && callback(err, count)
+  });
+}
+
+Article.getOnePage = function(options, callback){
+  db.collection('article').find({}).limit(options.limit).skip(options.skip).sort({create_at:-1}, function(err, articles){
+    callback && callback(err, articles);
+  })
+}
+
 Article.get = function(condition, callback){
   var id = lib.getDbId(condition);
   // 如果直接传id的话

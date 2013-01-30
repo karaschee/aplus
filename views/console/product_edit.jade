@@ -1,12 +1,39 @@
 extends ../layout_console
 
 block content
+  
   h1= is_new?"新建产品":"编辑产品"
   form.formA.console_form(action="/products/#{is_new?"new":product._id+"/edit"}", method="post", enctype="multipart/form-data")
-    fieldset
-      legend 必填信息
-      .layout
-        .rCol
+    .layout
+      .rCol         
+        fieldset
+          legend 选填信息
+          .row
+            label.key 宣传语
+            input.text_input(type="text", name="slogan", value="#{$.blankStr(product.slogan)}")
+          - p = config.product
+          - for(var i in p){
+            - item = p[i];
+            .row
+              label.key= item.key
+              if item.multiple
+                select(name="#{i}", multiple)
+                  each value in item.data
+                    if value == product.brand
+                      option(value="#{value}", selected)= value
+                    else
+                      option(value="#{value}")= value
+              else
+                select(name="#{i}")
+                  each value in item.data
+                    if value == product.brand
+                      option(value="#{value}", selected)= value
+                    else
+                      option(value="#{value}")= value
+          - }
+      .main
+        fieldset
+          legend 必填信息
           .row
             div
               - if(product.image){
@@ -15,22 +42,16 @@ block content
                 div.product_img 请添加图片
               - }
             input(type="file", name="image")
-        .main
           .row
             label.key 名称
             input.text_input(type="text", name="title", value="#{$.blankStr(product.title)}")
           .row
-            label.key 厂商
-            input.text_input(type="text", name="brand", value="#{$.blankStr(product.brand)}")
+            label.key 价格
+            input.text_input(type="text", name="price", value="#{$.blankStr(product.price)}")
           .row
             label.key 说明
             textarea.text_input(name="introduce", rows="10", cols="35", value="#{$.blankStr(product.introduce)}")
           .hd
             input(type="hidden", name="mark_image", value="#{$.blankStr(product.image)}")
-    fieldset
-      legend 选填信息
-      .row
-        label.key 颜色
-        input.text_input(type="text", name="color", value="#{$.blankStr(product.params.color)}")
-      .bottom
-        input(type="submit", value="提交表单")
+          .bottom
+            input(type="submit", value="提交表单")

@@ -1,0 +1,30 @@
+- pages = pageManager.pages, currentPage = pageManager.currentPage;
+- baseUrl = pageManager.base + (pageManager.base.indexOf('?') < 0 ? '?' : '&') + 'page=';
+- console.log(pages);
+if pages > 1
+  p.pages
+    if currentPage == 1
+      a.disabled «
+    else
+      a(href="#{baseUrl}1") «
+
+    - var pageStart = currentPage - 2 > 0 ? currentPage - 2 : 1
+    - var pageEnd = pageStart + 4 >= pages ? pages : pageStart + 4;
+
+    if pageStart > 1
+      a ...
+
+    - for(var i = pageStart; i <= pageEnd; i++){
+      if i === currentPage
+        a(class="disabled")= i
+      else
+        a(href="#{baseUrl}#{i}")= i
+    - }
+
+    if pageEnd < pages
+      a ...
+
+    if currentPage == pages
+      a.disabled »
+    else
+      a(href="#{baseUrl}#{pages}") »

@@ -2,17 +2,11 @@ var db = require('./db');
 var lib = require('../lib')
 
 function Product(data){
-  var product = {};
+  var product = data;
 
-  product.title = data.title;
-  product.brand = data.brand;
-  product.image = data.image;
   product.introduce = data.introduce;
   product.create_at = new Date();
   product.count = 0;
-
-  product.params = {};
-  product.params.color = data.color;
 
   this.data = product;
 
