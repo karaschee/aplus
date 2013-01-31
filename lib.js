@@ -1,4 +1,5 @@
-var db = require('./models/db.js');
+var db = require('./models/db');
+var config = require('./config');
 var EventProxy = require('eventproxy');
 
 // from cnode lib.js
@@ -108,28 +109,31 @@ exports.getDbId = function(id){
 /**
  * 页数管理
  *
- * @param {Object} options 配置
- * @param {EventProxy} render 用于激活pageManger参数,以让后续事件继续
+ * @param {Object} options keys:req collection limit query
+ * @param {Function} callback 
  */
 
-exports.pages = function(options, render){
-  var currentPage = options.currentPage,
-      limit = options.limit
-      skip = (currentPage - 1) * limit
+exports.pages = function(options, callback){
+
+  var currentPage = parseInt(options.req.query.page, 10) || 1,
+      limit = options.limit,
+      skip = (currentPage - 1) * limit,
       collection = options.collection,
-      query = options.query ? options.query : {}
+      base = options.req.originalUrl.replace(/&page=\d+|\?page=\d$/g,''),
+      query = options.query ? options.query : {};
 
   var ep = EventProxy.create('count', 'data', function(count, data){
+    console.log(count);
     var pageManager = {
       pages:Math.ceil(count / limit) || 1,
       currentPage:currentPage,
-      base:options.base,
+      base:base,
       data:data
     }
-    render.emit('pageManager', pageManager);
+    callback && callback(pageManager);
   });
 
-  db.collection(collection).count(function(err, count){
+  db.collection(collection).find(query).count(function(err, count){
     ep.emit('count', count)
   });
 

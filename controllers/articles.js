@@ -2,7 +2,7 @@ var util = require('util');
 var Article = require('../models/article.js');
 
 exports.getById = function(req, res, next, id) {
-  Article.get(id, function(err, article){
+  Article.get(id, 0, function(err, article){
     if (err) return next(err);
     if (!article) return next(new Error('Post loading failed'));
     req.result = article;

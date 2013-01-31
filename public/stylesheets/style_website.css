@@ -1,0 +1,19 @@
+.container { width:960px; margin:0 auto; }
+
+#top { height:40px; line-height:40px; background:#222; color:#fff; }
+#header { height:120px; }
+#nav { height:35px; background:#eee; }
+#body { padding:20px 0; }
+#footer { padding:20px 0; text-align:center; }
+
+.features_slide { margin-bottom:10px; border:1px solid #ccc; height:100px; }
+
+.products_show { padding-bottom:15px; }
+.products_show li { float:left; margin-bottom:10px; width:20%; text-align:center; font-size:12px; }
+.products_show li a { display:block; margin:0 auto; width:120px; }
+.products_show li img { width:118px; height:118px; border:1px solid #efefef; }
+.products_show li a:hover { text-decoration:none; }
+.products_show li a:hover img { border:1px solid blue; }
+.products_show li p { margin-top:5px; }
+.products_show li .title { font-weight:bold; }
+.products_show li .slogan { font-size:12px; color:#888; }

@@ -54,6 +54,7 @@ module.exports = function(app){
 
 
   // Website
+  app.get('/', site.home)
 
   app.get('/products', site.products)
   app.get('/products/:productid', site.product)

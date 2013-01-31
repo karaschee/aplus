@@ -10,10 +10,12 @@ block content
       th 操作
     each article in articles
       tr
-        td= article.title
+        td
+          a(href="/articles/#{article._id}", target="_blank")= article.title
         td= article.count
         td= $.formatDate(article.create_at, true)
         td 
           a(href="/articles/#{article._id}/edit") [ 编辑 ] 
           a(href="/articles/#{article._id}/delete") [ 删除 ] 
           a(href="/console/articles/#{article._id}/comments") [ 查看评论 ]
+  include ../pages

@@ -1,11 +1,17 @@
-- collection = "article", id = article._id
+extend ../layout_website
 
-h1= article.title
+block content
+  .layout
+    .lCol 43
+    .main
+      - collection = "article", id = article._id
 
-p this is content
+      h1= article.title
 
-ul
-  each comment in comments
-    li= comment.content
+      p this is content
 
-include ./comment_form
+      ul
+        each comment in comments
+          li= comment.content
+
+      include ./_comment_form

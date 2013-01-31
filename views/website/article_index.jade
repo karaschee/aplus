@@ -1,7 +1,12 @@
-ul
-  each article in articles
-    li
-      a(href="/articles/#{article._id}")= article.title
+extend ../layout_website
 
-- pageManager = articlePageManager
-include ../pages
+block content
+  .layout
+    .lCol 43
+    .main
+      ul
+        each article in articles
+          li
+            a(href="/articles/#{article._id}")= article.title
+
+      include ../pages

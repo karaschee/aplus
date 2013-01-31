@@ -1,0 +1,13 @@
+extends ../layout_website
+
+block content
+  .layout
+    .lCol.lCol_website
+      include ./_say_hi
+      include ./_hot_products
+      include ./_new_comments
+    .main
+      .features_slide
+      - products = newProducts  
+      include ./_products_show
+

@@ -107,6 +107,52 @@ h3 { font-size:14px; }
    Website Module CSS
    ========================================================================== */
 
+/* Pages
+   ========================================================================== */
+
+.pagination{
+  height:36px;
+  margin:1em 0;
+}
+.pagination p{
+  float: right;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+}
+.pagination a{
+  border: 1px solid #CFD6E5;
+  background-color: #eceff5;
+  color: #606060;
+  padding: 3px 7px;
+  float: left;
+  margin-left: 8px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius   : 3px;
+  border-radius        : 3px;
+}
+.pagination a:hover{
+  background: #0066cc;
+  border-color: #0044cc;
+  color: white;
+  text-decoration: none;
+}
+.pagination b{
+  border: 1px solid #0044cc;
+  background-color: #0066cc;
+  color: white;
+  padding: 3px 7px;
+  float: left;
+  margin-left: 8px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius   : 3px;
+  border-radius        : 3px;
+  font-weight: bold;
+}
+.pagination .gap{
+  float: left;
+  margin-left: 8px;
+}
+
 /* Table
    ========================================================================== */
 
@@ -193,3 +239,4 @@ h3 { font-size:14px; }
 }
 
 .lCol_console { width:200px; }
+.lCol_website { width:250px; }

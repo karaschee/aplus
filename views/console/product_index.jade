@@ -11,7 +11,8 @@ block content
       th 操作
     each product in products
       tr
-        td= product.title
+        td
+          a(href="/products/#{product._id}", target="_blank")= product.title
         td= product.brand
         td= product.count
         td= $.formatDate(product.create_at, true)
@@ -19,3 +20,4 @@ block content
           a(href="/products/#{product._id}/edit") [ 编辑 ] 
           a(href="/products/#{product._id}/delete") [ 删除 ] 
           a(href="/console/products/#{product._id}/comments") [ 查看评论 ]
+    include ../pages          

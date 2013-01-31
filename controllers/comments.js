@@ -14,7 +14,7 @@ exports.save = function(req, res) {
 }
 
 exports.getById = function(req, res, next, id) {
-  Comment.get(id, function(err, comment){
+  Comment.get(id, 0, function(err, comment){
     if (err) return next(err);
     if (!comment) return next(new Error('Comment loading failed'));
     req.result = comment;

@@ -1,5 +1,6 @@
 var db = require('./db');
 var lib = require('../lib')
+var config = require('../config')
 
 function Product(data){
   var product = data;
@@ -19,8 +20,8 @@ Product.prototype.save = function(callback){
   });
 }
 
-Product.get = function(condition, callback){
-  var id = lib.getDbId(condition);
+Product.get = function(query, limit, callback){
+  var id = lib.getDbId(query);
   // 如果直接传id的话
   if(id){
     db.product.findOne({_id:id}, function(err, product){
@@ -28,10 +29,27 @@ Product.get = function(condition, callback){
     });
   // 根据条件查询
   }else {
-    db.product.find(condition, function(err, products){
+    db.product.find(query).limit(limit).sort({create_at:-1}, function(err, products){
       callback && callback(err, products);
     });
   }
+}
+
+Product.getOnePage = function(req, query, callback){
+  lib.pages({
+    req:req,
+    limit:config.numPerPage,
+    collection:'product',
+    query:query
+  }, function(pageManager){
+    callback(pageManager)
+  });
+}
+
+Product.getHot = function(limit, callback){
+  db.collection('product').find({}).limit(limit).sort({count:-1}, function(err, products){
+    callback && callback(err, products);
+  })
 }
 
 Product.update = function(id, data, callback){

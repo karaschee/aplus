@@ -1,5 +1,6 @@
 var db = require('./db');
-var lib = require('../lib')
+var lib = require('../lib');
+var config = require('../config');
 
 function Article(data){
   var article = {};
@@ -20,20 +21,19 @@ Article.prototype.save = function(callback){
   });
 }
 
-Article.count = function(callback){
-  db.collection('article').count(function(err, count){
-    callback && callback(err, count)
+Article.getOnePage = function(req, query, callback){
+  lib.pages({
+    req:req,
+    limit:config.numPerPage,
+    collection:'article',
+    query:query
+  }, function(pageManager){
+    callback(pageManager)
   });
 }
 
-Article.getOnePage = function(options, callback){
-  db.collection('article').find({}).limit(options.limit).skip(options.skip).sort({create_at:-1}, function(err, articles){
-    callback && callback(err, articles);
-  })
-}
-
-Article.get = function(condition, callback){
-  var id = lib.getDbId(condition);
+Article.get = function(query, limit, callback){
+  var id = lib.getDbId(query);
   // 如果直接传id的话
   if(id){
     db.collection('article').findOne({_id:id}, function(err, article){
@@ -41,10 +41,16 @@ Article.get = function(condition, callback){
     });
   // 根据条件查询
   }else {
-    db.collection('article').find(condition, function(err, articles){
+    db.collection('article').find(query).limit(0).sort({create_at:-1}, function(err, articles){
       callback && callback(err, articles);
     });
   }
+}
+
+Article.getHot = function(limit, callback){
+  db.collection('article').find({}).limit(limit).sort({count:-1}, function(err, articles){
+    callback && callback(err, articles);
+  })
 }
 
 Article.update = function(id, data, callback){

@@ -1,4 +1,64 @@
-ul
-  each product in products
-    li
-      a(href="/products/#{product._id}")= product.title
+extend ../layout_website
+
+block content
+  .layout
+    .lCol 432
+    .main
+      #products_filter
+        ul
+          - filter = config.product
+          - for(var key in filter){
+            - item = filter[key]
+            li
+              span= item.key + ":"
+              unless key in query
+                b(style="color:red;") 不限
+              else
+                a(href="#", data-filter="#{key}=") 不限
+
+              each option in item.data
+                if query[key] == option
+                  b(style="color:red;")= option
+                else
+                  a(href="#", data-filter="#{key}=#{option}")= option
+          - }
+      include ./_products_show
+
+  script(type="text/javascript")
+    // $todo:可将这个参数操作提成公用方法
+    seajs.use("$", function($){
+      $(function(){
+        var boxFilter = $('#products_filter');
+        boxFilter.on('click', 'a', function(e){
+          var filter = $(this).attr('data-filter');
+          var key = filter.split('=')[0];
+          var value = filter.split('=')[1];
+          var regr = new RegExp('([\?&])'+key+'=[^&]+(?=&|$)');
+          var ismatch = regr.test(location.href);
+          var redirect;
+          if(ismatch){
+            if(value === ''){
+              redirect = location.href.replace(regr, function(a,b){
+                if(b == '?')
+                  return '?';
+                else
+                  return '';
+              })
+              redirect = redirect.replace('?&', '?');
+            }else {
+              redirect = location.href.replace(regr, function(a,b){
+                if(b == '?')
+                  return '?' + filter;
+                else
+                  return '&' + filter;
+              });
+            }
+          }else {
+            redirect = location.href + (location.href.indexOf('?')>0?'&':'?') + filter;
+            redirect = redirect.replace('?&', '?');
+          }
+          location.href=redirect;
+          return false;
+        });
+      });
+    })
