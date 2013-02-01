@@ -89,13 +89,6 @@
    Website Base CSS
    ========================================================================== */
 
-body { color: #202020; font:14px/1.5 \5B8B\4F53, serif; }
-
-/* link */
-a { color:#3060bf; text-decoration:none; }
-a:hover { text-decoration:underline; }
-a:active { color: #bb0000; }
-
 /* headline */
 h1,h2,h3 { margin-bottom:10px; }
 h1 { font-size:18px; }

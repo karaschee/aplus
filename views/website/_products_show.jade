@@ -1,12 +1,14 @@
-.products_show
-  if products.length == 0
-    p 抱歉，没有找到你要的产品
-  else
-    ul
-      each product in products
-        li
-          a(href="/products/#{product._id}")
-            img(src="", width="120", height="120")
-            p.title= product.title
-            p.slogan 牛逼的手机不解释
-    .cl
+.box
+  h3.hd 产品展示
+  .products_show
+    if products.length == 0
+      p 抱歉，没有找到你要的产品
+    else
+      ul
+        each product in products
+          li
+            a(href="/products/#{product._id}")
+              img(src="", width="120", height="120")
+              p.title= product.title
+              p.slogan 牛逼的手机不解释
+      .cl

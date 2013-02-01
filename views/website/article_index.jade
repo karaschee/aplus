@@ -4,9 +4,10 @@ block content
   .layout
     .lCol 43
     .main
-      ul
+      ul.articles_list
         each article in articles
           li
             a(href="/articles/#{article._id}")= article.title
+            span.r= $.formatDate(article.create_at, true)
 
       include ../pages

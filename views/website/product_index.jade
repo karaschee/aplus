@@ -10,7 +10,7 @@ block content
           - for(var key in filter){
             - item = filter[key]
             li
-              span= item.key + ":"
+              span.key= item.key + ":"
               unless key in query
                 b(style="color:red;") 不限
               else

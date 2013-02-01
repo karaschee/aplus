@@ -1,3 +1,8 @@
-ul
-  each comment in newComments
-    li= comment.content
+.box
+  h3.hd 热门评论
+  .bd
+    ul.new_comments
+      each comment in newComments
+        li
+          p.content= comment.content
+          p.bottom= comment.user+" 在"+$.formatDate(comment.create_at, true)+"发布"

@@ -1,19 +1,96 @@
-.container { width:960px; margin:0 auto; }
+/* ==========================================================================
+   Website Base CSS
+   ========================================================================== */
 
-#top { height:40px; line-height:40px; background:#222; color:#fff; }
-#header { height:120px; }
-#nav { height:35px; background:#eee; }
-#body { padding:20px 0; }
-#footer { padding:20px 0; text-align:center; }
+body{
+  color:#5F676B;
+  font-family:'Lato',Arial,Helvetica,\5B8B\4F53,sans-serif;
+  font-size:14px;
+  line-height:1.6;
+  background:#F5F6F7;
+}
+
+/* link */
+a { color:#10A4DD; text-decoration:none; }
+a:hover { color: #5AD0FF; }
+
+/* ==========================================================================
+   Website Module CSS
+   ========================================================================== */
+
+.box { margin-bottom:18px; }
+.box .hd { margin-bottom:10px; font-size:16px; font-weight:bold; color:#10A4DD; }
+.box .bd {  }
 
 .features_slide { margin-bottom:10px; border:1px solid #ccc; height:100px; }
+
+.container { width:960px; margin:0 auto; }
 
 .products_show { padding-bottom:15px; }
 .products_show li { float:left; margin-bottom:10px; width:20%; text-align:center; font-size:12px; }
 .products_show li a { display:block; margin:0 auto; width:120px; }
 .products_show li img { width:118px; height:118px; border:1px solid #efefef; }
 .products_show li a:hover { text-decoration:none; }
-.products_show li a:hover img { border:1px solid blue; }
+.products_show li a:hover img { border:1px solid #10A4DD; }
 .products_show li p { margin-top:5px; }
 .products_show li .title { font-weight:bold; }
 .products_show li .slogan { font-size:12px; color:#888; }
+
+.products_list li { margin-bottom:10px; padding:0 0 10px; border-bottom:2px solid #eee; }
+.products_list li .title a { color:#ec5706; }
+.products_list li .content .img { float:left; width:72px; height:72px; background:#ccc; }
+.products_list li .content .info { margin-left:80px; font-size:12px; }
+.products_list li .content .intro { height:54px; overflow:hidden; }
+
+.new_comments li { margin-bottom:10px; padding:0 0 10px; border-bottom:1px dotted #eee; font-size:12px; }
+.new_comments li .content { /*height:36px;*/ overflow:hidden; }
+.new_comments li .bottom { text-align:right; color:#888; }
+.new_comments li .bottom span { margin-left:6px; }
+
+.slide_show { margin-bottom:10px; overflow:hidden; }
+.slide_show .slide_show_inner { position:relative; height:240px; }
+.slide_show .image_group { height:100%; }
+.slide_show .image_group img { width:100%; height:100%; }
+.slide_show .bottom, .slide_show .bottom_bg { position:absolute; bottom:0px; left:0px; width:100%; height:30px; }
+.slide_show .bottom { line-height:30px; color:#fff; font-size: 12px; z-index:0;}
+.slide_show .bottom_bg { background:#000; opacity:0.7; filter:alpha(opacity=80); z-index:-1; }
+.slide_show .bottom .image_info { float:left; margin-left:8px; width:70%; height:100%; }
+.slide_show .bottom .image_info a { color:#fff; word-break:keep-all; white-space:nowrap; }
+.slide_show .image_index { margin-top:10px; text-align:center; }
+.slide_show .image_index a { display:inline-block; width:10px; height:10px; margin:8px 5px; background:url(../images/bullets.png) 0 0 no-repeat; text-indent:-9999px; }
+.slide_show .image_index a.current { background-position:0 100%; }
+
+.articles_list li { padding:5px 0; border-bottom:1px dotted #ccc; }
+
+#products_filter { margin-bottom:15px; padding:8px; background:#f3f3f3; }
+#products_filter li { padding:3px; font-size:12px; }
+#products_filter .key { font-weight:bold; margin-right:10px; }
+#products_filter a { color:#888; }
+#products_filter a, #products_filter b { padding:0 3px; }
+
+/* ==========================================================================
+   Layout CSS
+   ========================================================================== */
+
+#top { height:30px; line-height:30px; background:#333; color:#fff; font-size:12px; }
+#header { height:100px; }
+
+#logo { margin:30px 0 0 0; }
+#logo_title{
+  font-family: 'Lato',Arial,sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+#logo_title span { font-size:25px; }
+
+#nav { padding-top:20px; border-top:1px solid #eee; border-bottom:1px solid #eee; height:80px; background:#EEF2F2; font-size:16px; font-weight:bold; }
+#nav a { float:left; margin-right:15px; padding:0 15px; height:45px; line-height:50px; border-bottom:5px solid transparent; color:#666; }
+#nav a:hover, #nav a.current { border-bottom-color:#ec5706; color:#000; }
+#body {
+  background-color: #fff;
+  border-top:5px solid #858F95;
+  box-shadow:0 0 5px rgba(0, 0, 0, 0.2);
+  margin:-36px auto 0;
+}
+#body_inner { padding: 20px; }
+#footer { padding:20px 0; text-align:center; font-size:12px; }

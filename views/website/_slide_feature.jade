@@ -1,0 +1,32 @@
+#slide_feature.slide_show
+  .slide_show_inner
+    #slide_feature_images.image_group
+      img(src="http://img11.360buyimg.com/da/g7/M03/12/1C/rBEHZVD8d9YIAAAAAADxRPbq5FIAADsUgCT5GwAAPFc228.jpg")
+      img(src="http://img10.360buyimg.com/da/g10/M00/02/01/rBEQWVEJva4IAAAAAADqzKFA2WgAAAZwgKbiTEAAOrk389.jpg")
+      img(src="http://img10.360buyimg.com/da/g10/M00/02/0A/rBEQWFELINMIAAAAAADx-BN8pCIAAAdGgKzZ3IAAPIQ526.jpg")
+    .bottom
+      .bottom_bg
+      #slide_feature_info.image_info
+        span 火力全开！！让利5万
+        span 家居清洁新方向～
+        span 过年回家新方法
+  #slide_feature_index.image_index
+    a(href="javascript:") 1
+    a(href="javascript:") 2
+    a(href="javascript:") 3
+
+script(type="text/javascript")
+  seajs.use(['$', 'slideShow'], function($, slideShow){
+    $(function(){
+      slideShow.init({
+        optDOMs:[{
+            selector:"#slide_feature_images",
+            style:"slide-x"
+          },{
+            selector:"#slide_feature_info",
+            style:"fade"
+          }],
+          indexDOM:"#slide_feature_index"
+      });
+    });
+  })

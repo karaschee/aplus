@@ -2,7 +2,7 @@ html
   head
     meta(contnet="text/html", charset="utf-8", http-equiv="Content-Type")
     meta(name="description", content="#{config.description}")
-    title= title + " | #{config.name}"
+    title= title + " | " + config.name
     link(rel='stylesheet', href='/stylesheets/reset.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/style_website.css')
@@ -11,18 +11,27 @@ html
 
   body
     #top
-      .container welcome
+      .container 
+        | 欢迎光临成都A+诚品
+        span.r 联系电话：186-8372-2336
     #header.container
-      #logo this is logo
+      //
+        h1#logo 
+        a#logo_title(href="/") A+
+          span  诚品
     #nav
       .container
-        a(href="/") 首页 
-        a(href="/products") 产品库 
-        a(href="/articles") 新闻
+        #nav_bar
+          a(href="/", class="current") 首页 
+          a(href="/products") 产品库 
+          a(href="/articles") 新闻
     #body.container
-      block content
+      #body_inner
+        block content
     #footer
       .container
-        | this is footer
-
-    
+        | Copyright © 2013 成都A+诚品手机版权所有
+        br
+        | 联系电话：186-8372-2336
+        span.mhm
+        | 实体店地址：成都赛格广场负一楼A019 A+诚品
