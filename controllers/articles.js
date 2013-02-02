@@ -48,7 +48,7 @@ exports.update = function(req, res){
 }
 
 exports.delete = function(req, res){
-  Article.delete(req.params.id, function(err, fields){
+  Article.delete(req.params.id, function(err, numOfRemoved){
     res.redirect('back');
   });
 }

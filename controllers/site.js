@@ -25,10 +25,28 @@ exports.home = function(req, res){
 
 exports.products = function(req, res){
   var query = req.query;
+  var originPrice = query.price;
   if('page' in query){
     delete query.page;
   }
+  if(originPrice){
+    if(query.price == '5000以上'){
+      query.price = {
+        '$gte':5000
+      }
+    }else {
+      var compare = query.price.split('-');
+      console.log(compare);
+      query.price = {
+        '$lte':Number(compare[1]),
+        '$gte':Number(compare[0])
+      }
+    }
+  }
   var render = EventProxy.create('pageManager', function(pageManager){
+    if(originPrice){
+      query.price = originPrice;
+    }
     res.render('website/product_index', { title:'产品列表', pageManager:pageManager, products:pageManager.data, query:query } );
   });
 

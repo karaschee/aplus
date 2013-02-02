@@ -1,6 +1,7 @@
 var db = require('./db');
 var lib = require('../lib')
 var config = require('../config')
+var fs = require('fs')
 
 function Product(data){
   var product = data;
@@ -59,9 +60,19 @@ Product.update = function(id, data, callback){
 }
 
 Product.delete = function(id, callback){
-  db.product.remove({_id:lib.getDbId(id)}, function(err, product){
-    callback && callback(err, product);
-  });
-  
-  // $todo:删除图片\评论
+  id = lib.getDbId(id);
+  db.collection('comment').remove({parent_id:id}, function(err,numberOfRemoved){
+    console.log('相关'+numberOfRemoved+'条评论删除成功');
+  })
+  db.product.findOne({_id:id}, function(err, product){
+    fs.unlink(__dirname.replace('/models','')+product.image, function(err){
+      if(!err){
+        console.log('相关图片已经删除');
+      }
+    })
+    db.product.remove({_id:id}, function(err, numberOfRemoved){
+      console.log('删除的产品数：'+numberOfRemoved);
+      callback && callback(err, numberOfRemoved);
+    });
+  })
 }

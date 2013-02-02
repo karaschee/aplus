@@ -72,7 +72,7 @@ a:hover { color: #5AD0FF; }
    Layout CSS
    ========================================================================== */
 
-#top { height:30px; line-height:30px; background:#333; color:#fff; font-size:12px; }
+#top { height:38px; line-height:38px; background:url(../images/top-bg.png) 0 0 repeat-x; color:#fff; font-size:12px; }
 #header { height:100px; }
 
 #logo { margin:30px 0 0 0; }

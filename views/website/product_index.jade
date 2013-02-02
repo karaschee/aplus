@@ -6,7 +6,11 @@ block content
     .main
       #products_filter
         ul
+          li
+            span.key 价格:
+
           - filter = config.product
+          - filter.price = {key:'价格范围',data:['1-999','1000-1999','2000-2999','3000-3999','4000-4999','5000以上']}
           - for(var key in filter){
             - item = filter[key]
             li

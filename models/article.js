@@ -60,8 +60,11 @@ Article.update = function(id, data, callback){
 }
 
 Article.delete = function(id, callback){
-  db.collection('article').remove({_id:lib.getDbId(id)}, function(err, article){
-    callback && callback(err, article);
+  id = lib.getDbId(id);
+  db.collection('comment').remove({parent_id:id}, function(err,numberOfRemoved){
+    console.log('相关'+numberOfRemoved+'条评论删除成功');
+  })
+  db.collection('article').remove({_id:id}, function(err, numberOfRemoved){
+    callback && callback(err, numberOfRemoved);
   });
-  // $todo:删除评论
 }

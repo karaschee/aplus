@@ -7,9 +7,23 @@ block content
       legend 必填信息
       .row
         label.key 标题
-        input.text_input(type="text", name="title", value="#{$.blankStr(article.title)}")
+        input#article_title.text_input(type="text", name="title", value="#{$.blankStr(article.title)}")
       .row
         label.key 内容
-        textarea.text_input(name="content", rows="10", cols="35", value="#{$.blankStr(article.introduce)}")
+        textarea#article_content.text_input(name="content", rows="10", cols="35", value="#{$.blankStr(article.introduce)}")
       .bottom
         input(type="submit", value="提交表单")
+
+  script(type="text/javascript")
+    seajs.use('$',function($){
+      $(function(){
+        var inputTitle = $('#article_title');
+        var txtaContent = $('#article_content');
+        $('form').submit(function(){
+          if($.trim(inputTitle.val()) === '' || $.trim(txtaContent.val()) === ''){
+            alert('请填写标题与内容。');
+            return false;
+          }
+        });
+      })
+    })

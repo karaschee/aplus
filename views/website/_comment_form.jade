@@ -1,12 +1,42 @@
-form.formA(action="/comments/new?collection=#{collection}&id=#{id}", method="post")
+form#comment_form.formA(action="/comments/new?collection=#{collection}&id=#{id}", method="post")
   .row
-    label.key name
-    input(name="user")
+    label.key 用户名
+    input#comment_user.text_input(name="user")
   .row
-    lable.key email
-    input(name="email")
+    lable.key 邮箱
+    input#comment_email.text_input(name="email")
   .row
-    lable.key content
-    textarea(name="content")
+    lable.key 内容
+    textarea#comment_content.text_input(name="content")
   .bottom
-    input(type="submit", value="提交")  
+    input(type="submit", value="提交")
+
+script(type="text/javascript")
+  seajs.use('$', function($){
+    $(function(){
+      var inputCommentUsr = $('#comment_user');
+      var inputCommentEmail = $('#comment_email');
+      var inputCommentContent = $('#comment_content');
+
+      $('#comment_form').submit(function(){
+        var usrtxt = $.trim(inputCommentUsr.val());
+        var emailtxt = $.trim(inputCommentEmail.val());
+        var contenttxt = $.trim(inputCommentContent.val());
+
+        var emailReg = /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/;
+
+        if(usrtxt.length < 1 || usrtxt.length > 15){
+          alert('用户名请在15个字符以内。');
+          return false;
+        }
+        if(!emailReg.test(emailtxt)){
+          alert('请填写正确的邮箱地址。');
+          return false;        
+        }
+        if(contenttxt.length < 1 || contenttxt.length > 200){
+          alert('留言内容请在200个字符以内。');
+          return false;
+        }
+      });
+    });
+  });

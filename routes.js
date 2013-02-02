@@ -1,4 +1,4 @@
-var console = require('./controllers/console');
+var consoleRoute = require('./controllers/console');
 var products = require('./controllers/products');
 var articles = require('./controllers/articles');
 var comments = require('./controllers/comments');
@@ -46,11 +46,11 @@ module.exports = function(app){
   app.get('/console', function(req, res){
     res.redirect('/console/products');
   })
-  app.get('/console/products', console.products);
-  app.get('/console/articles', console.articles);
-  app.get('/console/comments', console.allComments);
-  app.get('/console/products/:productid/comments', console.comments);
-  app.get('/console/articles/:articleid/comments', console.comments);
+  app.get('/console/products', consoleRoute.products);
+  app.get('/console/articles', consoleRoute.articles);
+  app.get('/console/comments', consoleRoute.allComments);
+  app.get('/console/products/:productid/comments', consoleRoute.comments);
+  app.get('/console/articles/:articleid/comments', consoleRoute.comments);
 
 
   // Website

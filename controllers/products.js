@@ -23,8 +23,9 @@ exports.save = function(req, res){
   }else {
     data.image = "/" + image.path;
   }
+  data.price = Number(data.price);
 
-  console.log(util.inspect(image));
+  //console.log(util.inspect(image));
   var newProduct = new Product(data);
   newProduct.save(function(err, product){
     console.log(err, product);
@@ -38,16 +39,16 @@ exports.edit = function(req, res){
 
 exports.update = function(req, res){
   var id = req.params.productid;
-  var image = req.files.image, body = req.body;
+  var image = req.files.image, data = req.body;
 
   if(image.size === 0){
-    // 删除图片
-    body.image = body.mark_image;
+    data.image = data.mark_image;
   }else {
-    body.image = "/" + image.path;
+    data.image = "/" + image.path;
   }
+  data.price = Number(data.price);
 
-  var newp = new Product(body);
+  var newp = new Product(data);
   Product.update(id, newp.data, function(err, product){
     res.redirect("/console/products");
   });
