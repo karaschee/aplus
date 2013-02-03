@@ -2,16 +2,14 @@ extend ../layout_website
 
 block content
   .layout
-    .lCol 43
+    .lCol.lCol_website
+      include ./_say_hi
     .main
       - collection = "article", id = article._id
-
-      h1= article.title
-
-      p this is content
-
-      ul
-        each comment in comments
-          li= comment.content
-
+      .article_container
+        h1= article.title
+        p.article_info 发布于 #{$.formatDate(article.create_at)}
+        .article_content
+          p= article.content
+      include ./_comments
       include ./_comment_form

@@ -1,15 +1,20 @@
-form#comment_form.formA(action="/comments/new?collection=#{collection}&id=#{id}", method="post")
-  .row
-    label.key 用户名
-    input#comment_user.text_input(name="user")
-  .row
-    lable.key 邮箱
-    input#comment_email.text_input(name="email")
-  .row
-    lable.key 内容
-    textarea#comment_content.text_input(name="content")
-  .bottom
-    input(type="submit", value="提交")
+.box
+  .headline
+    h3
+      span 您有什么想说的吗？
+        i
+  form#comment_form.formA(action="/comments/new?collection=#{collection}&id=#{id}", method="post")
+    .row
+      label.key 用户名
+      input#comment_user.text_input(name="user")
+    .row
+      lable.key 邮箱
+      input#comment_email.text_input(name="email")
+    .row
+      lable.key 内容
+      textarea#comment_content.text_input(name="content", rows="12")
+    .bottom
+      input(type="submit", value="提交")
 
 script(type="text/javascript")
   seajs.use('$', function($){

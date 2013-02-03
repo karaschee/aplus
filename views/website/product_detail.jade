@@ -2,16 +2,33 @@ extend ../layout_website
 
 block content
   .layout
-    .lCol 34
+    .lCol.lCol_website
+      include ./_say_hi
     .main
       - collection = "product", id = product._id
 
-      h1= product.title
+      .product_container
 
-      p this is content
+        .product_info
+          img.r(src="#{product.image}", width="100", height="100")
+          h1 #{product.brand} #{product.title}
+          p= product.price + " 元"
+          if product.slogan
+            p= product.slogan
+          else
+            p 产品热卖中，有意请咨询~
+        .product_params
+          ul
+            - var i = 0;
+            - for(var key in config.product){
+              - if(key == 'price') continue;
+              li <strong>#{config.product[key].key}</strong> : #{product[key]}
+            - }
+          .cl
+        .product_intro
+          p= product.introduce
 
-      ul
-        each comment in comments
-          li= comment.content
 
+
+      include ./_comments
       include ./_comment_form

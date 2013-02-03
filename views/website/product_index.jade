@@ -2,14 +2,13 @@ extend ../layout_website
 
 block content
   .layout
-    .lCol 432
+    .lCol.lCol_website
+      include ./_say_hi
+      include ./_new_articles
     .main
       #products_filter
         ul
-          li
-            span.key 价格:
-
-          - filter = config.product
+          - filter = $.copy(config.product);
           - filter.price = {key:'价格范围',data:['1-999','1000-1999','2000-2999','3000-3999','4000-4999','5000以上']}
           - for(var key in filter){
             - item = filter[key]
@@ -27,9 +26,10 @@ block content
                   a(href="#", data-filter="#{key}=#{option}")= option
           - }
       include ./_products_show
+      include ../pages
 
   script(type="text/javascript")
-    // $todo:可将这个参数操作提成公用方法
+    // $todo:用对象的方法重写此段逻辑。
     seajs.use("$", function($){
       $(function(){
         var boxFilter = $('#products_filter');
@@ -60,8 +60,9 @@ block content
           }else {
             redirect = location.href + (location.href.indexOf('?')>0?'&':'?') + filter;
             redirect = redirect.replace('?&', '?');
+            redirect = redirect.replace(/&page=\d+|\?page=\d+$/,'');
           }
-          location.href=redirect;
+          location.href = redirect;
           return false;
         });
       });

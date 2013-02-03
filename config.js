@@ -6,9 +6,9 @@ module.exports = {
   db:"aplus",
   collection:["product", "article", "comment"],
 
-  articlesPerPage:3,
-  productsPerPage:3,
-  numPerPage:3,
+  articlesPerPage:10,
+  productsPerPage:10,
+  numPerPage:10,
 
   product:{
     brand:{key:"品牌",data:["其它","三星","LG","摩托罗拉","诺基亚","夏普","苹果","索尼","魅族","酷派","OPPO","联想","步步高","小米","黑莓","天语","HTC","华为","中兴","港利通"]},

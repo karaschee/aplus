@@ -61,4 +61,6 @@ module.exports = function(app){
 
   app.get('/articles', site.articles)
   app.get('/articles/:articleid', site.article)
+  app.get('/aboutus', site.aboutus)
+  app.get('/service', site.service)
 }

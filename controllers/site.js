@@ -24,7 +24,7 @@ exports.home = function(req, res){
 }
 
 exports.products = function(req, res){
-  var query = req.query;
+  var query = lib.copy(req.query);
   var originPrice = query.price;
   if('page' in query){
     delete query.page;
@@ -36,18 +36,24 @@ exports.products = function(req, res){
       }
     }else {
       var compare = query.price.split('-');
-      console.log(compare);
       query.price = {
         '$lte':Number(compare[1]),
         '$gte':Number(compare[0])
       }
     }
   }
-  var render = EventProxy.create('pageManager', function(pageManager){
+  console.log("query:");
+  console.log(query);
+
+  var render = EventProxy.create('pageManager', 'newArticles', function(pageManager, newArticles){
     if(originPrice){
       query.price = originPrice;
     }
-    res.render('website/product_index', { title:'产品列表', pageManager:pageManager, products:pageManager.data, query:query } );
+    res.render('website/product_index', { title:'产品列表', pageManager:pageManager, products:pageManager.data, newArticles:newArticles, query:query } );
+  });
+
+  Article.get({}, 10, function(err, articles){
+    render.emit('newArticles', articles);
   });
 
   Product.getOnePage(req, query, function(pageManager){
@@ -84,3 +90,13 @@ exports.article = function(req, res){
     res.render('website/article_detail', { title:'', article:article, comments:pageManager.data, pageManager:pageManager})
   })
 }
+
+exports.aboutus = function(req, res){
+  res.render('website/aboutus', { title:'关于本店' })
+}
+
+exports.service = function(req, res){
+  res.render('website/service', { title:'售后与保修' })
+}
+
+

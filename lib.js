@@ -119,7 +119,7 @@ exports.pages = function(options, callback){
       limit = options.limit,
       skip = (currentPage - 1) * limit,
       collection = options.collection,
-      base = options.req.originalUrl.replace(/&page=\d+|\?page=\d$/g,''),
+      base = options.req.originalUrl.replace(/&page=\d+|\?page=\d+$/g,''),
       query = options.query ? options.query : {};
 
   var ep = EventProxy.create('count', 'data', function(count, data){
@@ -140,5 +140,21 @@ exports.pages = function(options, callback){
   db.collection(collection).find(query).limit(limit).skip(skip).sort({create_at:-1}, function(err, data){
     ep.emit('data', data)
   });
+}
+
+/**
+ * shadow copy
+ *
+ * @param {Object} 被复制的对象
+ */
+
+exports.copy = function(obj){
+  var newObj = {};
+  for(var i in obj){
+    if(obj.hasOwnProperty(i)){
+      newObj[i] = obj[i];
+    }
+  }
+  return newObj;
 }
 

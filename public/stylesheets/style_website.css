@@ -22,6 +22,34 @@ a:hover { color: #5AD0FF; }
 .box .hd { margin-bottom:10px; font-size:16px; font-weight:bold; color:#10A4DD; }
 .box .bd {  }
 
+.headline { margin-bottom: 15px; border-bottom:5px solid #e1f3fa; } 
+.headline h3 { margin:0; height:28px; color:#333; font-size:18px; }
+.headline span{
+  display: inline-block;
+  border-bottom: 5px solid 
+  #8dd9f8;
+  line-height: 26px;
+  margin-bottom: -5px;
+  padding-right: 12px;
+  height: 100%;
+  position: relative;
+}
+.headline span i {
+  border-color: #e1f3fa 
+  transparent;
+  border-style: solid dashed;
+  border-width: 0 6px 5px;
+  font-size: 0;
+  margin: 0 -6px -5px 0;
+  height: 0;
+  width: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+
 .features_slide { margin-bottom:10px; border:1px solid #ccc; height:100px; }
 
 .container { width:960px; margin:0 auto; }
@@ -38,7 +66,7 @@ a:hover { color: #5AD0FF; }
 
 .products_list li { margin-bottom:10px; padding:0 0 10px; border-bottom:2px solid #eee; }
 .products_list li .title a { color:#ec5706; }
-.products_list li .content .img { float:left; width:72px; height:72px; background:#ccc; }
+.products_list li .content .img { float:left; width:72px; height:72px; }
 .products_list li .content .info { margin-left:80px; font-size:12px; }
 .products_list li .content .intro { height:54px; overflow:hidden; }
 
@@ -60,13 +88,36 @@ a:hover { color: #5AD0FF; }
 .slide_show .image_index a { display:inline-block; width:10px; height:10px; margin:8px 5px; background:url(../images/bullets.png) 0 0 no-repeat; text-indent:-9999px; }
 .slide_show .image_index a.current { background-position:0 100%; }
 
-.articles_list li { padding:5px 0; border-bottom:1px dotted #ccc; font-size:12px; }
+.articles_list li { border-bottom:1px dotted #ccc; font-size:12px; }
+.articles_list li a { display:block; padding:5px 0; }
 
 #products_filter { margin-bottom:15px; padding:8px; background:#f3f3f3; }
 #products_filter li { padding:3px; font-size:12px; }
 #products_filter .key { font-weight:bold; margin-right:10px; }
 #products_filter a { color:#888; }
 #products_filter a, #products_filter b { padding:0 3px; }
+
+.article_container { margin-bottom:20px; padding:10px; border:1px solid #eee; background:#f3f3f3; }
+.article_container h1 { padding-bottom:5px; border-bottom:2px solid #ccc; }
+.article_container .article_info { margin:5px 0 20px; font-size:12px; }
+.article_container .article_content { text-indent:2em; }
+.article_container .article_content p { margin-bottom:15px; }
+
+.comments_list li { margin-bottom:10px; border:1px solid #ccc; font-size:12px; }
+.comments_list li p { padding:5px; }
+.comments_list li .user { background:#efefef; }
+.comments_list li .reply { color:#ec5706; }
+
+.product_container { margin-bottom:20px; }
+.product_container h1 { font-size:21px; color:#ec5706; }
+.product_container .product_info p { padding:0 0 10px; }
+.product_container .product_params { margin-bottom:15px; padding:10px; border:2px #ccc dotted; }
+.product_container .product_params li { float:left; margin-right:12px; font-size:12px; }
+.product_container .product_intro { text-indent:2em; }
+.product_container .product_intro p { margin-bottom:15px; }
+
+.latest_article { font-size:12px; list-style:disc inside none; }
+.latest_article li { padding:5px 0; border-bottom:1px dotted #ccc; width:100%; overflow:hidden; white-space:nowrap; }
 
 /* ==========================================================================
    Layout CSS

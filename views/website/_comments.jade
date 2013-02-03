@@ -1,0 +1,15 @@
+.box
+  .headline
+    h3
+      span 顾客留言
+        i
+  ul.comments_list
+    if comments.length === 0
+      p.tc.f12.pvl 暂时还没人留言。亲，说点什么吧 
+    else
+      each comment in comments
+        li
+          p.user <strong>#{comment.user}</strong> 于 #{$.formatDate(comment.create_at, true)} 留言：
+          p= comment.content
+          if comment.reply
+            p.reply 店主回复：#{comment.reply}

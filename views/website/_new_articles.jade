@@ -1,0 +1,7 @@
+.box
+  h3.hd 最新文章
+  .bd
+    ul.latest_article
+      each article in newArticles
+        li 
+          a(href="/articles/#{article._id}", target="_blank")= article.title

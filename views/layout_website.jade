@@ -22,9 +22,11 @@ html
     #nav
       .container
         #nav_bar
-          a(href="/", class="current") 首页 
+          a(href="/") 首页 
           a(href="/products") 产品库 
           a(href="/articles") 新闻
+          a(href="/aboutus") 关于我们
+          a(href="/service") 售后与保修
     #body.container
       #body_inner
         block content
@@ -35,3 +37,19 @@ html
         | 联系电话：186-8372-2336
         span.mhm
         | 实体店地址：成都赛格广场负一楼A019 A+诚品
+    script(type="text/javascript")
+      seajs.use('$', function($){
+        $(function(){
+          var path = location.pathname;
+          $('#nav_bar a').each(function(i){
+            var link = $(this);
+            var index = link.attr('href');
+            if(path == index && i == 0){
+              link.addClass('current');
+            }
+            if(path.indexOf(index) >= 0 && i > 0){
+              link.addClass('current');
+            }
+          });
+        });
+      })

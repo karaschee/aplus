@@ -18,7 +18,6 @@ block content
               label.key= item.key
               select(name="#{i}")
                 each value in item.data
-                  - console.log(value, product[i]);
                   if value == product[i]
                     option(value="#{value}", selected)= value
                   else
