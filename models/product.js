@@ -4,7 +4,10 @@ var config = require('../config')
 var fs = require('fs')
 
 function Product(data){
-  var product = data;
+  var product = {};
+  for(var i in data){
+    product[i] = data[i];
+  }
 
   product.introduce = data.introduce;
   product.create_at = new Date();

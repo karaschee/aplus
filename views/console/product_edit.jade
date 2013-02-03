@@ -43,7 +43,7 @@ block content
             input#product_price.text_input(type="text", name="price", value="#{$.blankStr(product.price)}")
           .row
             label.key 说明
-            textarea#product_intro.text_input(name="introduce", rows="10", cols="35", value="#{$.blankStr(product.introduce)}")
+            textarea#product_intro.text_input(name="introduce", rows="10", cols="35")= $.blankStr(product.introduce)
           .hd
             input(type="hidden", name="mark_image", value="#{$.blankStr(product.image)}")
           .bottom

@@ -60,7 +60,7 @@ a:hover { color: #5AD0FF; }
 .slide_show .image_index a { display:inline-block; width:10px; height:10px; margin:8px 5px; background:url(../images/bullets.png) 0 0 no-repeat; text-indent:-9999px; }
 .slide_show .image_index a.current { background-position:0 100%; }
 
-.articles_list li { padding:5px 0; border-bottom:1px dotted #ccc; }
+.articles_list li { padding:5px 0; border-bottom:1px dotted #ccc; font-size:12px; }
 
 #products_filter { margin-bottom:15px; padding:8px; background:#f3f3f3; }
 #products_filter li { padding:3px; font-size:12px; }

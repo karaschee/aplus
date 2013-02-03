@@ -31,20 +31,16 @@ exports.edit = function(req, res){
 
 exports.update = function(req, res){
   var id = req.params.articleid;
-  var image = req.files.image, body = req.body;
+  var body = req.body;
 
-  if(image.size === 0){
-    // 删除图片
-    body.image = body.mark_image;
-  }else {
-    body.image = "/" + image.path;
-  }
-
-  var newp = new Article(body);
-  Article.update(id, newp.data, function(err, article){
-    res.redirect("/console/articles");
+  Article.get(id, 1, function(err, article){
+    for(var i in body){
+      article[i] = body[i];
+    }
+    Article.update(id, article, function(err, article){
+      res.redirect("/console/articles");
+    });
   });
-
 }
 
 exports.delete = function(req, res){

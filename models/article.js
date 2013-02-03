@@ -4,9 +4,10 @@ var config = require('../config');
 
 function Article(data){
   var article = {};
+  for(var i in data){
+    article[i] = data[i];
+  }
 
-  article.title = data.title;
-  article.brand = data.content;
   article.create_at = new Date();
   article.count = 0;
 

@@ -10,7 +10,7 @@ block content
         input#article_title.text_input(type="text", name="title", value="#{$.blankStr(article.title)}")
       .row
         label.key 内容
-        textarea#article_content.text_input(name="content", rows="10", cols="35", value="#{$.blankStr(article.introduce)}")
+        textarea#article_content.text_input(name="content", rows="10", cols="35")= $.blankStr(article.content)
       .bottom
         input(type="submit", value="提交表单")
 

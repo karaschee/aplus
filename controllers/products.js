@@ -48,11 +48,14 @@ exports.update = function(req, res){
   }
   data.price = Number(data.price);
 
-  var newp = new Product(data);
-  Product.update(id, newp.data, function(err, product){
-    res.redirect("/console/products");
+  Product.get(id, 1, function(err, product){
+    for(var i in data){
+      product[i] = data[i];
+    }
+    Product.update(id, product, function(err, product){
+      res.redirect("/console/products");
+    });
   });
-
 }
 
 exports.delete = function(req, res){
