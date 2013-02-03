@@ -124,24 +124,24 @@ a:hover { color: #5AD0FF; }
    ========================================================================== */
 
 #top { height:38px; line-height:38px; background:url(../images/top-bg.png) 0 0 repeat-x; color:#fff; font-size:12px; }
-#header { height:100px; }
-
-#logo { margin:30px 0 0 0; }
-#logo_title{
+#header { padding:20px 0; background:#fff; }
+#ad { width:738px; height:100px; }
+#logo { margin-top:18px; height:66px; }
+/*#logo_title{
   font-family: 'Lato',Arial,sans-serif;
   font-size: 40px;
   font-weight: bold;
 }
-#logo_title span { font-size:25px; }
+#logo_title span { font-size:25px; }*/
 
-#nav { padding-top:20px; border-top:1px solid #eee; border-bottom:1px solid #eee; height:80px; background:#EEF2F2; font-size:16px; font-weight:bold; }
+#nav { padding-top:10px; border-bottom:3px solid #eee; height:80px; background:url(../images/nav-bg.gif); font-size:16px; font-weight:bold; }
 #nav a { float:left; margin-right:15px; padding:0 15px; height:45px; line-height:50px; border-bottom:5px solid transparent; color:#666; }
 #nav a:hover, #nav a.current { border-bottom-color:#ec5706; color:#000; }
 #body {
   background-color: #fff;
   border-top:5px solid #858F95;
   box-shadow:0 0 5px rgba(0, 0, 0, 0.2);
-  margin:-36px auto 0;
+  margin:-38px auto 0;
 }
 #body_inner { padding: 20px; }
 #footer { padding:20px 0; text-align:center; font-size:12px; }
