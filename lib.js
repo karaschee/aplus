@@ -120,6 +120,7 @@ exports.pages = function(options, callback){
       skip = (currentPage - 1) * limit,
       collection = options.collection,
       base = options.req.originalUrl.replace(/&page=\d+|\?page=\d+$/g,''),
+      //$todo:这种替换page参数的方法有问题。
       query = options.query ? options.query : {};
 
   var ep = EventProxy.create('count', 'data', function(count, data){

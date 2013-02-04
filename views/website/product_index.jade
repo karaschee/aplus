@@ -29,40 +29,20 @@ block content
       include ../pages
 
   script(type="text/javascript")
-    // $todo:用对象的方法重写此段逻辑。
-    seajs.use("$", function($){
+    seajs.use(['$', 'path'], function($, Path){
       $(function(){
         var boxFilter = $('#products_filter');
         boxFilter.on('click', 'a', function(e){
+          var path = new Path();
           var filter = $(this).attr('data-filter');
           var key = filter.split('=')[0];
           var value = filter.split('=')[1];
-          var regr = new RegExp('([\?&])'+key+'=[^&]+(?=&|$)');
-          var ismatch = regr.test(location.href);
-          var redirect;
-          if(ismatch){
-            if(value === ''){
-              redirect = location.href.replace(regr, function(a,b){
-                if(b == '?')
-                  return '?';
-                else
-                  return '';
-              })
-              redirect = redirect.replace('?&', '?');
-            }else {
-              redirect = location.href.replace(regr, function(a,b){
-                if(b == '?')
-                  return '?' + filter;
-                else
-                  return '&' + filter;
-              });
-            }
+          if(value === ''){
+            path.del(key);
           }else {
-            redirect = location.href + (location.href.indexOf('?')>0?'&':'?') + filter;
-            redirect = redirect.replace('?&', '?');
-            redirect = redirect.replace(/&page=\d+|\?page=\d+$/,'');
+            path.set(key, value);
           }
-          location.href = redirect;
+          location.href = path.getHref();
           return false;
         });
       });

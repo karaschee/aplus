@@ -127,12 +127,6 @@ a:hover { color: #5AD0FF; }
 #header { padding:20px 0; background:#fff; }
 #ad { width:738px; height:100px; }
 #logo { margin-top:18px; height:66px; }
-/*#logo_title{
-  font-family: 'Lato',Arial,sans-serif;
-  font-size: 40px;
-  font-weight: bold;
-}
-#logo_title span { font-size:25px; }*/
 
 #nav { padding-top:10px; border-bottom:3px solid #eee; height:80px; background:url(../images/nav-bg.gif); font-size:16px; font-weight:bold; }
 #nav a { float:left; margin-right:15px; padding:0 15px; height:45px; line-height:50px; border-bottom:5px solid transparent; color:#666; }

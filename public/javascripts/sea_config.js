@@ -5,6 +5,7 @@ seajs.config({
     '$':'jquery/1.8.3/jquery',
     'popWin':'/utilities/popWin/'+ENV+'/popWin',
     'slideShow':'/utilities/slideShow/'+ENV+'/slideShow',
+    'path':'/utilities/path/'+ENV+'/path'
   }
 });
 
