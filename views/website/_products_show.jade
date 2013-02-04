@@ -11,7 +11,7 @@
         each product in products
           li
             a(href="/products/#{product._id}")
-              img(src="", width="120", height="120")
+              img(src="#{product.image}", width="120", height="120")
               p.title= product.title
-              p.slogan 牛逼的手机不解释
+              p.slogan= product.slogan
       .cl
