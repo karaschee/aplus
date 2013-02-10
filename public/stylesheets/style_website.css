@@ -97,7 +97,7 @@ a:hover { color: #5AD0FF; }
 #products_filter a { color:#888; }
 #products_filter a, #products_filter b { padding:0 3px; }
 
-.article_container { margin-bottom:20px; padding:10px; border:1px solid #eee; background:#f3f3f3; }
+.article_container { margin-bottom:20px; padding:10px; border:1px solid #f3f3f3; background:#f8f8f8; }
 .article_container h1 { padding-bottom:5px; border-bottom:2px solid #ccc; }
 .article_container .article_info { margin:5px 0 20px; font-size:12px; }
 .article_container .article_content { text-indent:2em; }
@@ -118,6 +118,8 @@ a:hover { color: #5AD0FF; }
 
 .latest_article { font-size:12px; list-style:disc inside none; }
 .latest_article li { padding:5px 0; border-bottom:1px dotted #ccc; width:100%; overflow:hidden; white-space:nowrap; }
+
+#aboutus p { margin-bottom:20px; text-indent:2em; }
 
 /* ==========================================================================
    Layout CSS

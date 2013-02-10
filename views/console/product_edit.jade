@@ -40,16 +40,17 @@ block content
           .row
             label.key 价格
             input#product_price.text_input(type="text", name="price", value="#{$.blankStr(product.price)}")
-          .row
-            label.key 说明
-            textarea#product_intro.text_input(name="introduce", rows="10", cols="35")= $.blankStr(product.introduce)
           .hd
             input(type="hidden", name="mark_image", value="#{$.blankStr(product.image)}")
-          .bottom
-            input(type="submit", value="提交表单")
+    .row
+      label.key 说明
+      textarea#product_intro.text_input(name="introduce", rows="10", cols="35")= $.blankStr(product.introduce)
+    .bottom
+      input(type="submit", value="提交表单")
+
 
   script(type="text/javascript")
-    seajs.use('$', function($){
+    seajs.use(['$', 'kindeditor'], function($, K){
       $(function(){
         var inputTitle = $('#product_title');
         var inputPrice = $('#product_price');
@@ -69,6 +70,11 @@ block content
             alert('请填写说明。');
             return false;
           }
+        });
+
+        var editor = K.create('#product_intro', {
+          width:700,
+          height:300
         });
       });
     });

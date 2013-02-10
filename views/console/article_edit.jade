@@ -15,7 +15,7 @@ block content
         input(type="submit", value="提交表单")
 
   script(type="text/javascript")
-    seajs.use('$',function($){
+    seajs.use(['$', 'kindeditor'],function($, K){
       $(function(){
         var inputTitle = $('#article_title');
         var txtaContent = $('#article_content');
@@ -25,5 +25,11 @@ block content
             return false;
           }
         });
+        
+        var editor = K.create('#article_content', {
+          width:700,
+          height:300
+        });
+
       })
     })

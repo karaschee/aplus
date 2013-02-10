@@ -10,6 +10,6 @@ block content
         h1= article.title
         p.article_info 发布于 #{$.formatDate(article.create_at)}
         .article_content
-          p= article.content
+          div!= article.content
       include ./_comments
       include ./_comment_form
