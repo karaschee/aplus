@@ -8,7 +8,8 @@ var express = require('express')
   , path = require('path');
 
 var lib = require('./lib')
-  , config = require('./config');
+  , config = require('./config')
+  , request = require('request');
 
 var app = express();
 
@@ -29,6 +30,13 @@ app.configure(function(){
 
 app.configure('development', function(){
   app.use(express.errorHandler());
+});
+
+// User validation
+
+var auth = express.basicAuth('shimeng', 'aplus', 'Super duper secret area');
+app.get('/console/*', auth, function(req, res, next){
+  next();
 });
 
 // Helpers
