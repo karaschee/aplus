@@ -111,8 +111,10 @@ a:hover { color: #5AD0FF; }
 .product_container { margin-bottom:20px; }
 .product_container h1 { font-size:21px; color:#ec5706; }
 .product_container .product_info p { padding:0 0 10px; }
-.product_container .product_params { margin-bottom:15px; padding:10px; border:2px #ccc dotted; }
-.product_container .product_params li { float:left; margin-right:12px; font-size:12px; }
+.product_container .product_params { margin-bottom:20px; width:100%; text-align:left; font-size:12px; }
+.product_container .product_params th,
+.product_container .product_params td { padding:5px 10px; border:1px solid #e8e8e8; }
+.product_container .product_params th { width:20%; background:#f8fbfe; }
 .product_container .product_intro { text-indent:2em; }
 .product_container .product_intro p { margin-bottom:15px; }
 

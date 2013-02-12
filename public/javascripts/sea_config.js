@@ -6,7 +6,8 @@ seajs.config({
     'popWin':'/utilities/popWin/'+ENV+'/popWin',
     'slideShow':'/utilities/slideShow/'+ENV+'/slideShow',
     'path':'/utilities/path/'+ENV+'/path',
-    'kindeditor':'/utilities/kindeditor/dist/kindeditor-debug'
+    'kindeditor':'/utilities/kindeditor/dist/kindeditor-debug',
+    'fixedPos':'/utilities/fixedPos/'+ENV+'/fixedPos'
   }
 });
 

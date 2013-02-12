@@ -17,14 +17,14 @@ block content
             p= product.slogan
           else
             p 产品热卖中，有意请咨询~
-        .product_params
-          ul
-            - var i = 0;
-            - for(var key in config.product){
-              - if(key == 'price') continue;
-              li <strong>#{config.product[key].key}</strong> : #{product[key]}
-            - }
-          .cl
+        table.product_params
+          - var i = 0;
+          - for(var key in config.product){
+            - if(key == 'price') continue;
+            tr
+              th #{config.product[key].key}
+              td #{product[key]}
+          - }
         .product_intro
           div!= product.introduce
 
