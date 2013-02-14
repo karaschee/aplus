@@ -9,7 +9,7 @@ exports.save = function(req, res) {
 
   newc = new Comment(body);
   newc.save(function(){
-    res.redirect("/"+collection+"s/"+id);
+    res.redirect('back');
   });
 }
 

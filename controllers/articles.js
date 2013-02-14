@@ -32,11 +32,13 @@ exports.edit = function(req, res){
 exports.update = function(req, res){
   var id = req.params.articleid;
   var body = req.body;
-
+  
   Article.get(id, 1, function(err, article){
     for(var i in body){
       article[i] = body[i];
     }
+    if(!article.is_top) article.is_top = '0'
+    if(!article.show_in_home) article.show_in_home = '0'
     Article.update(id, article, function(err, article){
       res.redirect("/console/articles");
     });

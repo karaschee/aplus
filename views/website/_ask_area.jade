@@ -1,0 +1,12 @@
+.box
+  .headline
+    h3
+      span 提问区
+        i
+  div!= askArticle.content
+- comments = askArticleComments
+- collection = 'article'; id = askArticle._id
+include ./_comments
+p.tr
+  a(href='/articles/#{askArticle._id}') 查看更多 &raquo;
+include ./_comment_form

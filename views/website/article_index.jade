@@ -7,7 +7,7 @@ block content
     .main
       ul.articles_list
         each article in articles
-          li
+          li(class="#{article.is_top == '1'?'is_top':''}")
             a(href="/articles/#{article._id}")
               | #{article.title}
               span.r= $.formatDate(article.create_at, true)

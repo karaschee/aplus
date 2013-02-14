@@ -89,6 +89,7 @@ a:hover { color: #5AD0FF; }
 .slide_show .image_index a.current { background-position:0 100%; }
 
 .articles_list li { border-bottom:1px dotted #ccc; font-size:12px; }
+.articles_list li.is_top a { color:red; }
 .articles_list li a { display:block; padding:5px 0; }
 
 #products_filter { margin-bottom:15px; padding:8px; background:#f3f3f3; }

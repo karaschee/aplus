@@ -8,8 +8,8 @@ var util = require('util');
 var EventProxy = require('eventproxy');
 
 exports.home = function(req, res){
-  var render = EventProxy.create('hotProducts', 'newProducts', 'newComments', function(hotProducts, newProducts, newComments){
-    res.render('website/home', { title:'首页', hotProducts:hotProducts, newProducts:newProducts, newComments:newComments } );
+  var render = EventProxy.create('hotProducts', 'newProducts', 'newComments', 'askArticle', 'askArticleComments', function(hotProducts, newProducts, newComments, askArticle, askArticleComments){
+    res.render('website/home', { title:'首页', hotProducts:hotProducts, newProducts:newProducts, newComments:newComments, askArticle:askArticle, askArticleComments:askArticleComments } );
   });
   Product.getHot(5, function(err, products){
     render.emit('hotProducts', products);
@@ -20,7 +20,18 @@ exports.home = function(req, res){
   Comment.get({}, 5, function(err, comments){
     render.emit('newComments', comments);
   })
-  
+  Article.get({show_in_home:'1'}, 1, function(err, articles){
+    console.log(articles);
+    if(articles.length == 1){
+      Comment.get({parent_id:articles[0]._id}, 10, function(err, comments){
+        render.emit('askArticleComments', comments);
+      })
+      render.emit('askArticle', articles[0]);
+    }else {
+      render.emit('askArticle', undefined);
+      render.emit('askArticleComments', []);
+    }
+  });
 }
 
 exports.products = function(req, res){

@@ -9,6 +9,20 @@ block content
         label.key 标题
         input#article_title.text_input(type="text", name="title", value="#{$.blankStr(article.title)}")
       .row
+        label.key 置顶
+        if article.is_top == '1'
+          input(type="checkbox", name="is_top", value="1", checked)
+        else
+          input(type="checkbox", name="is_top", value="1")
+        | 是否将该文章置顶？
+      .row
+        label.key 在首页展示
+        if article.show_in_home == '1'
+          input(type="checkbox", name="show_in_home", value="1", checked)
+        else
+          input(type="checkbox", name="show_in_home", value="1")
+        | 作为首页提问区？
+      .row
         label.key 内容
         textarea#article_content.text_input(name="content", rows="10", cols="35")= $.blankStr(article.content)
       .bottom

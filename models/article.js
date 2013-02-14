@@ -8,6 +8,8 @@ function Article(data){
     article[i] = data[i];
   }
 
+  if(!article.is_top) article.is_top = '0'
+  if(!article.show_in_home) article.show_in_home = '0'
   article.create_at = new Date();
   article.count = 0;
 
@@ -42,7 +44,7 @@ Article.get = function(query, limit, callback){
     });
   // 根据条件查询
   }else {
-    db.collection('article').find(query).limit(0).sort({create_at:-1}, function(err, articles){
+    db.collection('article').find(query).limit(limit).sort({create_at:-1}, function(err, articles){
       callback && callback(err, articles);
     });
   }

@@ -7,6 +7,8 @@ block content
       th 文章名称
       th 点击
       th 创建时间
+      th 置顶
+      th 首页提问区
       th 操作
     each article in articles
       tr
@@ -14,6 +16,8 @@ block content
           a(href="/articles/#{article._id}", target="_blank")= article.title
         td= article.count
         td= $.formatDate(article.create_at, true)
+        td= article.is_top == '1'?'是':''
+        td= article.show_in_home == '1'?'是':''
         td 
           a(href="/articles/#{article._id}/edit") [ 编辑 ] 
           a(class="delete_confirm", href="/articles/#{article._id}/delete") [ 删除 ] 

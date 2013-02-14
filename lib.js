@@ -138,7 +138,7 @@ exports.pages = function(options, callback){
     ep.emit('count', count)
   });
 
-  db.collection(collection).find(query).limit(limit).skip(skip).sort({create_at:-1}, function(err, data){
+  db.collection(collection).find(query).limit(limit).skip(skip).sort({is_top:-1, create_at:-1}, function(err, data){
     ep.emit('data', data)
   });
 }
