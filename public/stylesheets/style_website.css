@@ -124,6 +124,9 @@ a:hover { color: #5AD0FF; }
 
 #aboutus p { margin-bottom:20px; text-indent:2em; }
 
+#QQ { padding-top:29px; width:100px; height:87px; background:url(../images/contactus.gif) 0 0 no-repeat; }
+#QQ a { display:block; height:43px; }
+
 /* ==========================================================================
    Layout CSS
    ========================================================================== */
