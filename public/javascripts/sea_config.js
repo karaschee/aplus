@@ -1,3 +1,15 @@
+// console log
+if(!window.console){
+  window.console = {};
+}
+if(!console.log){
+  console.log = function(){};
+}
+function trace(data){
+  console.log(data);
+}
+
+// seajs config
 var ENV = 'src';
 trace('sea配置文件加载。');
 seajs.config({
@@ -10,18 +22,6 @@ seajs.config({
     'fixedPos':'/utilities/fixedPos/'+ENV+'/fixedPos'
   }
 });
-
-
-// console log
-if(!window.console){
-  window.console = {};
-}
-if(!console.log){
-  console.log = function(){};
-}
-function trace(data){
-  console.log(data);
-}
 
 
 // 一些页面常用事件和方法
