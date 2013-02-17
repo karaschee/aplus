@@ -11,8 +11,16 @@ seajs.config({
   }
 });
 
+
+// console log
+if(!window.console){
+  window.console = {};
+}
+if(!console.log){
+  console.log = function(){};
+}
 function trace(data){
-  console && console.log(data);
+  console.log(data);
 }
 
 
