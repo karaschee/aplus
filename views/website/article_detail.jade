@@ -4,12 +4,12 @@ block content
   .layout
     .lCol.lCol_website
       include ./_say_hi
-    .main
+    .main.main_restrict
       - collection = "article", id = article._id
       .article_container
         h1= article.title
         p.article_info 发布于 #{$.formatDate(article.create_at)}
-        .article_content
+        .article_content.restrict_container
           div!= article.content
       include ./_comments
       include ./_comment_form
