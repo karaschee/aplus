@@ -70,7 +70,7 @@ a:hover { color: #5AD0FF; }
 .products_list li .title a { color:#ec5706; }
 .products_list li .content .img { float:left; width:72px; height:72px; }
 .products_list li .content .info { margin-left:80px; font-size:12px; }
-.products_list li .content .intro { height:54px; overflow:hidden; }
+.products_list li .content .intro { height:19px; overflow:hidden; }
 
 .new_comments li { margin-bottom:10px; padding:0 0 10px; border-bottom:1px dotted #eee; font-size:12px; }
 .new_comments li .content { /*height:36px;*/ overflow:hidden; }
@@ -95,8 +95,8 @@ a:hover { color: #5AD0FF; }
 .articles_list li a { display:block; padding:5px 0; }
 
 #products_filter { margin-bottom:15px; padding:8px; background:#f3f3f3; }
-#products_filter li { padding:3px; font-size:12px; }
-#products_filter .key { font-weight:bold; margin-right:10px; }
+#products_filter td { padding:3px; font-size:12px; }
+#products_filter .key { font-weight:bold; white-space:nowrap; text-align:right; }
 #products_filter a { color:#888; }
 #products_filter a, #products_filter b { padding:0 3px; }
 
@@ -126,8 +126,9 @@ a:hover { color: #5AD0FF; }
 
 #aboutus p { margin-bottom:20px; text-indent:2em; }
 
-#QQ { padding-top:29px; width:100px; height:87px; background:url(../images/contactus.gif) 0 0 no-repeat; }
-#QQ a { display:block; height:43px; }
+#QQ { padding-top:30px; width:120px; height:150px; background:url(../images/contactus-pro.gif) 0 0 no-repeat; text-align:center; font-size:12px; }
+#QQ p { margin-bottom:4px; }
+#QQ a {}
 
 /* ==========================================================================
    Layout CSS

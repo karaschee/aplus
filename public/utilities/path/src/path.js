@@ -1,32 +1,43 @@
 define(function(require, exports, module){
   function Path(href){
     if(typeof href == 'string'){
-      this._href = href;
+      this.href = href;
       //$todo
     }else {
-      this._href = location.href;
+      this.href = location.href;
       this.host = location.host;
       this.pathname = location.pathname;
-      this.url = this._href.split('?')[0];
     }
-    var str = this._href.split('?')[1];
-    if(str){
-      this._query = str.split('#')[0];
-      this.cursor = str.split('#')[1];
+    var queryStr = this.href.split('?')[1];
+    if(queryStr){
+      this.url = this.href.split('?')[0];
+      var cursor = queryStr.split('#')[1];
+      if(cursor){
+        this.query = queryStr.split('#')[0];
+        this.cursor = cursor;
+      }else {
+        this.query = queryStr;
+        this.cursor = '';
+      }
       this.init();
     }else {
+      this.url = this.href;
+      this.query = '';
+      this.cursor = '';
       this.data = {};
     }
   }
 
   Path.prototype.init = function(){
-    var query = this._query;
+    var query = this.query;
     var params = query.split('&'), data = {};
-    for(var i in params){
-      var param = params[i].split('=')
-      var key = param[0];
-      var value = param[1];
-      data[key] = value;
+    if(typeof params === 'object'){    
+      for(var i in params){
+        var param = params[i].split('=')
+        var key = param[0];
+        var value = param[1];
+        data[key] = value;
+      }
     }
     this.data = data;
   }
@@ -49,16 +60,17 @@ define(function(require, exports, module){
   }
 
   Path.prototype.getQueryStr = function(){
-    var arr = [], query;
+    var arr = [];
     for(var key in this.data){
       var value = this.data[key];
       var param = key + '=' + value;
       arr.push(param);
     }
-    return '?' + arr.join('&');
+    return arr.length === 0 ? '' : '?' + arr.join('&');
   }
 
   Path.prototype.getHref = function(){
+    console.log(this.url, this.getQueryStr());
     return this.url + this.getQueryStr();
   }
 

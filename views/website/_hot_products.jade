@@ -10,7 +10,8 @@
             a(href="/products/#{product._id}", target="_blank")
               img.img(src="#{product.image}")
             div.info
-              p.intro= product.introduce
+              p= product.brand
+              p.intro= product.slogan
               p
                 strong 价格 : 
                 | #{product.price}

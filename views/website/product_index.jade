@@ -7,23 +7,25 @@ block content
       include ./_new_articles
     .main
       #products_filter
-        ul
+        table
           - filter = $.copy(config.product);
           - filter.price = {key:'价格范围',data:['1-999','1000-1999','2000-2999','3000-3999','4000-4999','5000以上']}
           - for(var key in filter){
             - item = filter[key]
-            li
-              span.key= item.key + ":"
-              unless key in query
-                b(style="color:red;") 不限
-              else
-                a(href="#", data-filter="#{key}=") 不限
-
-              each option in item.data
-                if query[key] == option
-                  b(style="color:red;")= option
+            tr
+              td.key
+                span= item.key + ":"
+              td
+                unless key in query
+                  b(style="color:red;") 不限
                 else
-                  a(href="#", data-filter="#{key}=#{option}")= option
+                  a(href="#", data-filter="#{key}=") 不限
+
+                each option in item.data
+                  if query[key] == option
+                    b(style="color:red;")= option
+                  else
+                    a(href="#", data-filter="#{key}=#{option}")= option
           - }
       include ./_products_show
       include ../pages
@@ -42,6 +44,7 @@ block content
           }else {
             path.set(key, value);
           }
+          path.del('page');
           location.href = path.getHref();
           return false;
         });
