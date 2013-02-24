@@ -69,7 +69,7 @@ a:hover { color: #5AD0FF; }
 .products_list li { margin-bottom:10px; padding:0 0 10px; border-bottom:2px solid #eee; }
 .products_list li .title a { color:#ec5706; }
 .products_list li .content .img { float:left; width:72px; height:72px; }
-.products_list li .content .info { margin-left:80px; font-size:12px; }
+.products_list li .content .info { margin-left:80px; padding-top:8px; font-size:12px; }
 .products_list li .content .intro { height:19px; overflow:hidden; }
 
 .new_comments li { margin-bottom:10px; padding:0 0 10px; border-bottom:1px dotted #eee; font-size:12px; }
