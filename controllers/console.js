@@ -1,6 +1,7 @@
 var Product = require('../models/product.js');
 var Comment = require('../models/comment.js');
 var Article = require('../models/article.js');
+var Accessory = require('../models/accessory.js');
 var db = require('../models/db.js');
 var lib = require('../lib');
 var EventProxy = require('eventproxy')
@@ -10,6 +11,12 @@ var EventProxy = require('eventproxy')
 exports.products = function(req, res){
   Product.getOnePage(req, {}, function(pageManager){
     res.render('console/product_index',{title:'产品列表', products:pageManager.data, pageManager:pageManager});
+  });
+}
+
+exports.accessories = function(req, res){
+  Accessory.getOnePage(req, {}, function(pageManager){
+    res.render('console/accessory_index',{title:'产品列表', accessories:pageManager.data, pageManager:pageManager});
   });
 }
 

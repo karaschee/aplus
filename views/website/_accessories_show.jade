@@ -1,0 +1,17 @@
+.box
+  .headline
+    h3
+      span 配件展示
+        i
+  .products_show
+    if accessories.length == 0
+      p 抱歉，没有找到你要的产品
+    else
+      ul
+        each accessory in accessories
+          li
+            a(href="/accessories/#{accessory._id}")
+              img(src="#{accessory.image}", width="120", height="120")
+              p.title= accessory.title
+              p.slogan= accessory.slogan
+      .cl

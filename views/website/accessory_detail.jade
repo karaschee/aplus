@@ -1,0 +1,24 @@
+extend ../layout_website
+
+block content
+  .layout
+    .lCol.lCol_website
+      include ./_say_hi
+    .main
+      - collection = "accessory", id = accessory._id
+
+      .product_container
+
+        .product_info
+          img.r(src="#{accessory.image}", width="100", height="100")
+          h1 #{accessory.brand} #{accessory.title}
+          p= accessory.price + " 元"
+          if accessory.slogan
+            p= accessory.slogan
+          else
+            p 产品热卖中，有意请咨询~
+        .product_intro.restrict_container
+          div!= accessory.introduce
+
+      include ./_comments
+      include ./_comment_form

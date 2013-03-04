@@ -1,0 +1,21 @@
+extends ../layout_console
+
+block content
+  h1= title
+  table.table_normal
+    tr 
+      th 产品名称
+      th 点击
+      th 创建时间
+      th 操作
+    each accessory in accessories
+      tr
+        td
+          a(href="/accessories/#{accessory._id}", target="_blank")= accessory.title
+        td= accessory.count
+        td= $.formatDate(accessory.create_at, true)
+        td 
+          a(href="/accessories/#{accessory._id}/edit") [ 编辑 ] 
+          a(class="delete_confirm", href="/accessories/#{accessory._id}/delete") [ 删除 ] 
+          a(href="/console/accessories/#{accessory._id}/comments") [ 查看评论 ]
+  include ../pages

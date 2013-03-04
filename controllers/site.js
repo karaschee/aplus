@@ -1,6 +1,7 @@
 var Product = require('../models/product');
 var Article = require('../models/article');
 var Comment = require('../models/comment');
+var Accessory = require('../models/accessory.js');
 var db = require('../models/db');
 var config = require('../config');
 var lib = require('../lib');
@@ -99,6 +100,26 @@ exports.article = function(req, res){
 
   Comment.getOnePage(req, {parent_id:article._id}, function(pageManager){
     res.render('website/article_detail', { title:'', article:article, comments:pageManager.data, pageManager:pageManager})
+  })
+}
+
+exports.accessories = function(req, res){  
+  var render = EventProxy.create('pageManager', function(pageManager){
+    res.render('website/accessory_index', { title:'配件列表', pageManager:pageManager, accessories:pageManager.data } );
+  })
+
+  Accessory.getOnePage(req, {}, function(pageManager){
+    render.emit('pageManager', pageManager);
+  });
+}
+
+exports.accessory = function(req, res){
+  var accessory = req.result;
+  accessory.count++;
+  Accessory.update(accessory._id, accessory);
+
+  Comment.getOnePage(req, {parent_id:accessory._id}, function(pageManager){
+    res.render('website/accessory_detail', { title:'', accessory:accessory, comments:pageManager.data, pageManager:pageManager})
   })
 }
 

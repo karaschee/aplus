@@ -1,18 +1,18 @@
 var util = require('util');
-var Product = require('../models/product.js');
+var Accessory = require('../models/accessory.js');
 
 exports.getById = function(req, res, next, id) {
-  Product.get(id, 0, function(err, product){
+  Accessory.get(id, 0, function(err, accessory){
     if (err) return next(err);
-    if (!product) return next(new Error('Post loading failed'));
-    req.result = product;
-    req.collection = 'product';
+    if (!accessory) return next(new Error('Post loading failed'));
+    req.result = accessory;
+    req.collection = 'accessory';
     next();
   });
 }
 
 exports.new = function(req, res){
-  res.render('console/product_edit', {title:'新增产品', product:{}, is_new:true});
+  res.render('console/accessory_edit', {title:'新增配件', accessory:{}, is_new:true});
 }
 
 exports.save = function(req, res){
@@ -26,15 +26,15 @@ exports.save = function(req, res){
   data.price = Number(data.price);
 
   //console.log(util.inspect(image));
-  var newProduct = new Product(data);
-  newProduct.save(function(err, product){
+  var newAccessory = new Accessory(data);
+  newAccessory.save(function(err, product){
     console.log(err, product);
-    res.redirect('/console/products');
+    res.redirect('/console/accessories');
   });
 }
 
 exports.edit = function(req, res){
-  res.render('console/product_edit',{title:'编辑产品', product:req.result, is_new:false});
+  res.render('console/accessory_edit',{title:'编辑配件', accessory:req.result, is_new:false});
 }
 
 exports.update = function(req, res){
@@ -48,18 +48,18 @@ exports.update = function(req, res){
   }
   data.price = Number(data.price);
 
-  Product.get(id, 1, function(err, product){
+  Accessory.get(id, 1, function(err, product){
     for(var i in data){
       product[i] = data[i];
     }
-    Product.update(id, product, function(err, product){
-      res.redirect("/console/products");
+    Accessory.update(id, product, function(err, product){
+      res.redirect("/console/accessories");
     });
   });
 }
 
 exports.delete = function(req, res){
-  Product.delete(req.params.id, function(err, fields){
+  Accessory.delete(req.params.id, function(err, numOfRemoved){
     res.redirect('back');
   });
 }

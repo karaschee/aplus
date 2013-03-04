@@ -9,7 +9,7 @@ function Product(data){
     product[i] = data[i];
   }
 
-  product.introduce = data.introduce;
+  //product.introduce = data.introduce;
   product.create_at = new Date();
   product.count = 0;
 

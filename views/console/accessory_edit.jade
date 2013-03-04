@@ -1,0 +1,69 @@
+extends ../layout_console
+
+block content
+  
+  h1= is_new?"新建产品":"编辑产品"
+  form.formA.console_form(action="/accessories/#{is_new?"new":accessory._id+"/edit"}", method="post", enctype="multipart/form-data")
+    .layout
+      .rCol         
+        fieldset
+          legend 选填信息
+          .row
+            label.key 宣传语
+            input.text_input(type="text", name="slogan", value="#{$.blankStr(accessory.slogan)}")
+      .main
+        fieldset
+          legend 必填信息
+          .row
+            div
+              - if(accessory.image){
+                img.product_img(src="#{accessory.image}", alt="accessory image")
+              - }else {
+                div.product_img 请添加图片
+              - }
+            input(type="file", name="image")
+          .row
+            label.key 名称
+            input#accessory_title.text_input(type="text", name="title", value="#{$.blankStr(accessory.title)}")
+          .row
+            label.key 价格
+            input#accessory_price.text_input(type="text", name="price", value="#{$.blankStr(accessory.price)}")
+          .hd
+            input(type="hidden", name="mark_image", value="#{$.blankStr(accessory.image)}")
+    .row
+      label.key 说明
+      textarea#accessory_intro.text_input(name="introduce", rows="10", cols="35")= $.blankStr(accessory.introduce)
+    .bottom
+      input(type="submit", value="提交表单")
+
+
+  script(type="text/javascript")
+    seajs.use(['$', 'kindeditor'], function($, K){
+      $(function(){
+        var inputTitle = $('#accessory_title');
+        var inputPrice = $('#accessory_price');
+        var txtaIntro = $('#accessory_intro');
+
+        $('form').submit(function(){
+          var price = $.trim(inputPrice.val());
+          if( price === '' || isNaN(Number(price)) ){
+            alert('请填写价格。');
+            return false;
+          }
+          if($.trim(inputTitle.val()) === ''){
+            alert('请填写产品名称。');
+            return false;
+          }
+          if($.trim(txtaIntro.val()) === ''){
+            alert('请填写说明。');
+            return false;
+          }
+        });
+
+        var editor = K.create('#accessory_intro', {
+          width:700,
+          height:300
+        });
+      });
+    });
+

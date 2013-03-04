@@ -12,7 +12,7 @@ exports.getById = function(req, res, next, id) {
 }
 
 exports.new = function(req, res){
-  res.render('console/article_edit', {title:'新增文章', article:{params:{}}, is_new:true});
+  res.render('console/article_edit', {title:'新增文章', article:{}, is_new:true});
 }
 
 exports.save = function(req, res){
