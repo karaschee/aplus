@@ -62,5 +62,30 @@ exports.allComments = function(req, res){
       }
     }
   });
+}
 
+exports.ad = function(req, res){
+  res.render('console/ad', {title:'编辑广告'})
+}
+
+exports.slide = function(req, res){
+  res.render('console/slide', {title:'编辑动态滚动栏'})
+}
+
+exports.bulletin = function(req, res){
+  db.collection('feature').findOne({type:"bulletin"}, function(err, element){
+    var bulletin = element ? element.content : {};
+    res.render('console/bulletin', {title:'编辑公告栏', bulletin:bulletin})
+  })
+}
+exports.bulletinSave = function(req, res){
+  var body = req.body;
+  var data = {
+    type:"bulletin",
+    content:body
+  }
+  db.collection('feature').update({type:"bulletin"}, data, {upsert: true}, function(err, element){
+    console.log('congratulation! bulletin update!');
+    res.redirect('/console/bulletin');
+  })
 }

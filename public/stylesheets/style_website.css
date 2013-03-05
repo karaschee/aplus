@@ -54,7 +54,7 @@ a:hover { color: #5AD0FF; }
 
 .container { width:960px; margin:0 auto; }
 
-.restrict_container { width:650px; overflow:hidden; }
+.restrict_container { width:625px; overflow:hidden; }
 
 .products_show { padding-bottom:15px; }
 .products_show li { float:left; margin-bottom:10px; width:20%; text-align:center; font-size:12px; }

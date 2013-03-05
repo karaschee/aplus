@@ -67,17 +67,25 @@ module.exports = function(app){
   app.get('/console/articles/:articleid/comments', consoleRoute.comments);
   app.get('/console/accessories/:accessoryid/comments', consoleRoute.comments);
 
+  app.get('/console/ad', consoleRoute.ad);
+  app.post('/console/ad', consoleRoute.adSave);
+  app.get('/console/bulletin', consoleRoute.bulletin);
+  app.post('/console/bulletin', consoleRoute.bulletinSave);
+  app.get('/console/slide', consoleRoute.slide);
+  app.post('/console/slide', consoleRoute.slideSave);
 
   // Website
-  app.get('/', site.home)
 
-  app.get('/products', site.products)
-  app.get('/products/:productid', site.product)
+  // app.get(/^\/(?!console)(?!stylesheets)(?!javascripts)(?!sea-modules).*/, site.prepare);
 
-  app.get('/articles', site.articles)
-  app.get('/articles/:articleid', site.article)
-  app.get('/accessories', site.accessories)
-  app.get('/accessories/:accessoryid', site.accessory)
-  app.get('/aboutus', site.aboutus)
-  app.get('/service', site.service)
+  app.get('/', site.home);
+
+  app.get('/products', site.products);
+  app.get('/products/:productid', site.product);
+  app.get('/articles', site.articles);
+  app.get('/articles/:articleid', site.article);
+  app.get('/accessories', site.accessories);
+  app.get('/accessories/:accessoryid', site.accessory);
+  app.get('/aboutus', site.aboutus);
+  app.get('/service', site.service);
 }

@@ -36,10 +36,10 @@ block content
             input(type="file", name="image")
           .row
             label.key 名称
-            input#product_title.text_input(type="text", name="title", value="#{$.blankStr(product.title)}")
+            input.text_input(type="text", name="title", value="#{$.blankStr(product.title)}", required)
           .row
             label.key 价格
-            input#product_price.text_input(type="text", name="price", value="#{$.blankStr(product.price)}")
+            input.text_input(type="text", name="price", value="#{$.blankStr(product.price)}", required)
           .hd
             input(type="hidden", name="mark_image", value="#{$.blankStr(product.image)}")
     .row
@@ -52,26 +52,6 @@ block content
   script(type="text/javascript")
     seajs.use(['$', 'kindeditor'], function($, K){
       $(function(){
-        var inputTitle = $('#product_title');
-        var inputPrice = $('#product_price');
-        var txtaIntro = $('#product_intro');
-
-        $('form').submit(function(){
-          var price = $.trim(inputPrice.val());
-          if( price === '' || isNaN(Number(price)) ){
-            alert('请填写价格。');
-            return false;
-          }
-          if($.trim(inputTitle.val()) === ''){
-            alert('请填写产品名称。');
-            return false;
-          }
-          if($.trim(txtaIntro.val()) === ''){
-            alert('请填写说明。');
-            return false;
-          }
-        });
-
         var editor = K.create('#product_intro', {
           width:700,
           height:300

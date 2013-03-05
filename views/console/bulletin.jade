@@ -1,0 +1,23 @@
+extends ../layout_console
+
+block content
+  h1 编辑公告栏
+  form.formA.console_form(action="/console/bulletin", method="post", enctype="multipart/form-data")
+    .row
+      label.key 标题
+      input.text_input(name="title", value="#{$.blankStr(bulletin.title)}", required)
+    .row
+      lable.key 内容
+      textarea#bulletin_content.text_input(name="content", rows="10", cols="35")= $.blankStr(bulletin.content)
+    .bottom
+      input(type="submit", value="提交表单")
+
+  script(type="text/javascript")
+    seajs.use(['$', 'kindeditor'],function($, K){
+      $(function(){        
+        var editor = K.create('#bulletin_content', {
+          width:700,
+          height:300
+        });
+      })
+    })

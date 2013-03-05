@@ -7,7 +7,7 @@ block content
       legend 必填信息
       .row
         label.key 标题
-        input#article_title.text_input(type="text", name="title", value="#{$.blankStr(article.title)}")
+        input.text_input(type="text", name="title", value="#{$.blankStr(article.title)}", required)
       .row
         label.key 置顶
         if article.is_top == '1'
@@ -30,20 +30,10 @@ block content
 
   script(type="text/javascript")
     seajs.use(['$', 'kindeditor'],function($, K){
-      $(function(){
-        var inputTitle = $('#article_title');
-        var txtaContent = $('#article_content');
-        $('form').submit(function(){
-          if($.trim(inputTitle.val()) === '' || $.trim(txtaContent.val()) === ''){
-            alert('请填写标题与内容。');
-            return false;
-          }
-        });
-        
+      $(function(){        
         var editor = K.create('#article_content', {
           width:700,
           height:300
         });
-
       })
     })
