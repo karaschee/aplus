@@ -1,4 +1,89 @@
 extends ../layout_console
 
+append js
+  script(type="text/javascript", src="/javascripts/KO.js")
+
 block content
-  h1 编辑动态滚动栏
+  h1 编辑宣传滚动栏
+  form.formA(data-bind="submit:updateSlide")
+    .row
+      button(data-bind="click:addSlide, enable:slides().length < 3", type="button") 增加图片 
+      span.red(data-bind="visible:slides().length == 3")  最多添加3张图片
+    .row
+      table.slideEditContainer(data-bind="foreach:slides, visible:slides().length > 0")
+        tr
+          td
+            label 信息 : 
+            input.text_input(type="text", data-bind="value:info")
+            br
+            label 链接 : 
+            input.text_input(type="text", data-bind="value:src")
+            br
+            label 地址 : 
+            input.text_input(type="text", data-bind="value:image")
+          td
+            button(data-bind="click:$root.removeSlide", type="button") 删除
+      p(data-bind="visible:slides().length === 0") 暂无数据，请添加。
+    .bottom
+      button(type="submit", value="") 更新数据
+
+
+  script
+    seajs.use(['$'],function($){
+      $(function(){
+        function Slide(data){
+          if(typeof data === 'undefined'){
+            data = {
+              info:'',
+              src:'',
+              image:''
+            }
+          }
+          this.info = ko.observable(data.info);
+          this.src = ko.observable(data.src);
+          this.image = ko.observable(data.image);
+        }
+
+        function slidesViewModel(){
+          var self = this;
+          self.slides = ko.observableArray([]);
+          self.addSlide = function(){
+            self.slides.push(new Slide());
+          }
+          self.removeSlide = function(slide){
+            if(confirm('是否删除此图片?'))
+              self.slides.remove(slide)
+          }
+          self.updateSlide = function(){
+            $.ajax({
+              url:'/console/slide',
+              //contentType: "application/json",
+              type:'post',
+              data:{
+                slides:ko.toJS(self.slides)
+              },
+              success:function(data){
+                alert("更新成功");
+              }
+            });
+          }
+
+          // load data from server
+          $.ajax({
+            url:'/console/slideGetData',
+            type:'get',
+            success:function(data){
+              console.log("data---------------");
+              console.log(data);
+              var pured = $.map(data, function(item){
+                return new Slide(item);
+              });
+              self.slides(pured);
+            }
+          });
+        }
+        
+
+        ko.applyBindings(new slidesViewModel());
+      })
+    });

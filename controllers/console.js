@@ -71,6 +71,23 @@ exports.ad = function(req, res){
 exports.slide = function(req, res){
   res.render('console/slide', {title:'编辑动态滚动栏'})
 }
+exports.slideGetData = function(req, res){
+  db.collection('feature').findOne({type:'slide'}, function(err, element){
+    var slides = element ? element.content : [];
+    res.send(slides);
+  })
+}
+exports.slideSave = function(req, res){
+  console.log(req.body);
+  var data = {
+    type:'slide',
+    content:req.body.slides
+  }
+  db.collection('feature').update({type:"slide"}, data, {upsert: true}, function(err, element){
+    console.log('congratulation! slide update!');
+    res.send("success!");
+  });
+}
 
 exports.bulletin = function(req, res){
   db.collection('feature').findOne({type:"bulletin"}, function(err, element){
@@ -87,5 +104,5 @@ exports.bulletinSave = function(req, res){
   db.collection('feature').update({type:"bulletin"}, data, {upsert: true}, function(err, element){
     console.log('congratulation! bulletin update!');
     res.redirect('/console/bulletin');
-  })
+  });
 }

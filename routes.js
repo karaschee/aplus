@@ -72,6 +72,7 @@ module.exports = function(app){
   app.get('/console/bulletin', consoleRoute.bulletin);
   app.post('/console/bulletin', consoleRoute.bulletinSave);
   app.get('/console/slide', consoleRoute.slide);
+  app.get('/console/slideGetData', consoleRoute.slideGetData);
   app.post('/console/slide', consoleRoute.slideSave);
 
   // Website

@@ -16,10 +16,14 @@ function getBulletin(callback){
 }
 
 exports.home = function(req, res){
-  var render = EventProxy.create('hotProducts', 'newProducts', 'newComments', 'askArticle', 'askArticleComments', 'bulletin'
-    function(hotProducts, newProducts, newComments, askArticle, askArticleComments, bulletin){
-      res.render('website/home', { title:'首页', hotProducts:hotProducts, newProducts:newProducts, newComments:newComments, askArticle:askArticle, askArticleComments:askArticleComments, bulletin:bulletin});
+  var render = EventProxy.create('hotProducts', 'newProducts', 'newComments', 'askArticle', 'askArticleComments', 'bulletin', 'slides',
+    function(hotProducts, newProducts, newComments, askArticle, askArticleComments, bulletin, slides){
+      res.render('website/home', { title:'首页', hotProducts:hotProducts, newProducts:newProducts, newComments:newComments, askArticle:askArticle, askArticleComments:askArticleComments, bulletin:bulletin, slides:slides});
     });
+  db.collection('feature').findOne({type:'slide'}, function(err, element){
+    var slides = element ? element.content : [];
+    render.emit('slides', slides);
+  });
   Product.getHot(5, function(err, products){
     render.emit('hotProducts', products);
   });

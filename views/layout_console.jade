@@ -4,11 +4,13 @@ html
     meta(contnet="text/html", charset="utf-8", http-equiv="Content-Type")
     meta(name="description", content="#{config.description}")
     title= title + " | 后台控制台 | " + config.name
-    link(rel='stylesheet', href='/stylesheets/reset.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='/stylesheets/style_console.css')
-    script(type="text/javascript", src="/sea-modules/seajs/1.3.1/sea.js")
-    script(type="text/javascript", src="/javascripts/sea_config.js")
+    block css
+      link(rel='stylesheet', href='/stylesheets/reset.css')
+      link(rel='stylesheet', href='/stylesheets/style.css')
+      link(rel='stylesheet', href='/stylesheets/style_console.css')
+    block js
+      script(type="text/javascript", src="/sea-modules/seajs/1.3.1/sea.js")
+      script(type="text/javascript", src="/javascripts/sea_config.js")
 
   body
     .layout
@@ -47,7 +49,7 @@ html
               li
                 a(href="/console/ad") 广告管理
               li
-                a(href="/console/slide") 宣传管理
+                a(href="/console/slide") 宣传滚动管理
       .main
         #console_content
           block content
