@@ -167,6 +167,8 @@ define(function(require, exports, module){
         options.readyFunc(that);
       }
     }
+
+    return that;
   }
   
   $.fn.extend({
