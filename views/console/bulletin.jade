@@ -7,7 +7,7 @@ block content
       label.key 标题
       input.text_input(name="title", value="#{$.blankStr(bulletin.title)}", required)
     .row
-      lable.key 内容
+      label.key 内容
       textarea#bulletin_content.text_input(name="content", rows="10", cols="35")= $.blankStr(bulletin.content)
     .bottom
       input(type="submit", value="提交表单")
