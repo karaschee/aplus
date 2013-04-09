@@ -3,14 +3,14 @@ extend ../layout_website
 block content
   .layout
     .lCol.lCol_website
-      include ./_say_hi
+      .product_image
+        img(src="#{product.image}")
     .main
       - collection = "product", id = product._id
 
       .product_container
 
         .product_info
-          img.r(src="#{product.image}", width="100", height="100")
           h1 #{product.brand} #{product.title}
           p= product.price + " 元"
           if product.slogan

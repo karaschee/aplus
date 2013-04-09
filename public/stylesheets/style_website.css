@@ -53,7 +53,7 @@ a:hover { color: #5AD0FF; }
 
 .container { width:960px; margin:0 auto; }
 
-.restrict_container { width:625px; overflow:hidden; }
+.restrict_container { width:650px; overflow:hidden; }
 
 .products_show { padding-bottom:15px; }
 .products_show li { float:left; margin-bottom:10px; width:20%; text-align:center; font-size:12px; }
@@ -120,6 +120,8 @@ a:hover { color: #5AD0FF; }
 .product_container .product_params th { width:20%; background:#f8fbfe; }
 .product_container .product_intro { text-indent:2em; }
 .product_container .product_intro p { margin-bottom:15px; }
+.product_image { text-align: center; }
+.product_image img { max-width: 100%; }
 
 .latest_article { font-size:12px; list-style:disc inside none; }
 .latest_article li { padding:5px 0; border-bottom:1px dotted #ccc; width:100%; overflow:hidden; white-space:nowrap; }
