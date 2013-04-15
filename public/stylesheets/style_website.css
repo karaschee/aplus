@@ -58,12 +58,12 @@ a:hover { color: #5AD0FF; }
 .products_show { padding-bottom:15px; }
 .products_show li { float:left; margin-bottom:10px; width:20%; text-align:center; font-size:12px; }
 .products_show li a { display:block; margin:0 auto; width:120px; }
-.products_show li img { width:118px; height:118px; border:1px solid #efefef; }
+.products_show li img { width:118px; height:118px; border:1px solid #fff; }
 .products_show li a:hover { text-decoration:none; }
 .products_show li a:hover img { border:1px solid #10A4DD; }
 .products_show li p { margin-top:5px; }
 .products_show li .title { font-weight:bold; }
-.products_show li .slogan { font-size:12px; color:#888; }
+.products_show li .slogan { height: 38px; overflow: hidden; font-size:12px; color:#888; }
 
 .products_list li { margin-bottom:10px; padding:0 0 10px; border-bottom:2px solid #eee; }
 .products_list li .title a { color:#ec5706; }
