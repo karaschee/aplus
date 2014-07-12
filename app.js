@@ -9,7 +9,8 @@ var express = require('express')
 
 var lib = require('./lib')
   , config = require('./config')
-  , request = require('request');
+  , request = require('request')
+  , pass = require('./pass');
 
 var app = express();
 
@@ -34,7 +35,7 @@ app.configure('development', function(){
 
 // User validation
 
-var auth = express.basicAuth('shimeng', 'aplus', 'Super duper secret area');
+var auth = express.basicAuth(pass.userid, pass.password, 'Super duper secret area');
 app.get('/console/*', auth, function(req, res, next){
   next();
 });
